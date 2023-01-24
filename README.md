@@ -55,7 +55,7 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 Let's login into the minio GUI
 
   - Username: `icebergadmin`
-  - Password: `supersecret1!1
+  - Password: `supersecret1!`
 
 ---
 ![](./images/minio_login_screen.png)
