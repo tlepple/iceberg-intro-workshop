@@ -24,7 +24,6 @@ sudo apt-get install git-all -y
 
 cd ~
 git clone https://github.com/tlepple/iceberg-intro-workshop.git
-
 ```
 
 ---
@@ -35,7 +34,7 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 ####  This script will setup and confgure the following tools on this one host:
  - minio (local S3a Service) (RELEASE.2023-01-12T02-06-16Z )
  - minio cli  (version RELEASE.2023-01-11T03-14-16Z )
- - openjdk 11 (version: )
+ - openjdk 11 (version: 11 )
  - aws cli (version 2.19.19)
  - postgresql (version: 14)
  - apache spark (version: 3.3_2.12)
@@ -44,10 +43,8 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 ---
 
 ```
-
 #  run it:
 . ~/iceberg-intro-workshop/setup_iceberg.sh
-
 ```
 
 ---
