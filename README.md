@@ -52,7 +52,7 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 ---
 ## Let's Explore Minio
 
-Let's login into the minio GUI
+Let's login into the minio GUI: navigate to `http:\\<host ip address>:8080` in a browser
 
   - Username: `icebergadmin`
   - Password: `supersecret1!`
