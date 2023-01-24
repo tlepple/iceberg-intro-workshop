@@ -4,13 +4,15 @@
 
 ## Objective:
 
- * notes go here:
+ * To stand up an environment to evaluate Apache Iceberg with data stored in an S3a service (minio)
 
 ---
 
 ###  Pre-Requisites:
 
- * notes go here:
+ * I built this on a new install of Ubuntu Server
+ * Version: 20.04.5 LTS 
+ * Instance Specs: (min 2 core w/ 4 GB ram)
 
 ---
 
@@ -73,7 +75,7 @@ cd $SPARK_HOME
 ---
 
 ##  Check that the Spark GUI is up:
- * navigate to `http:\\<host ip address>:8080`
+ * navigate to `http:\\<host ip address>:8080` in a browser
 
 ---
 
@@ -97,7 +99,6 @@ export AWS_PACKAGES=(
 for pkg in "${AWS_PACKAGES[@]}"; do
 export DEPENDENCIES+=",$AWS_MAVEN_GROUP:$pkg:$AWS_SDK_VERSION"
 done
-
 ```
 
 ###  Start the Spark-SQL client service:
@@ -121,7 +122,6 @@ spark-sql --packages $DEPENDENCIES \
 --conf spark.eventLog.dir=/opt/spark/spark-events \
 --conf spark.history.fs.logDirectory=/opt/spark/spark-events \
 --conf spark.sql.catalogImplementation=in-memory
-
 ```
 
 ---
