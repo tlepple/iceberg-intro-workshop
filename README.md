@@ -51,6 +51,18 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
  * Grab a coffee, this will run a while.
 
 ---
+## Run an aws cli command against our local minio server
+ * all the aws s3 command work in this server.
+
+```
+aws --endpoint-url http://127.0.0.1:9000 s3 ls
+```
+
+#### Expected Output: The bucket name.
+```
+2023-01-24 22:58:38 iceberg-data
+```
+---
 ## Let's Explore Minio
 
 Let's login into the minio GUI: navigate to `http:\\<host ip address>:9000` in a browser
