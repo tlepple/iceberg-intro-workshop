@@ -74,16 +74,16 @@ Let's login into the minio GUI: navigate to `http:\\<host ip address>:9000` in a
 ![](./images/minio_login_screen.png)
 ---
 
-This is the view of the Object Browser with one bucket that was created with the script `iceberg-data`
+This is the view of the Object Browser with one bucket that was created during the install.  Bucket Name:  `iceberg-data`
 ---
 ![](./images/first_login.png)
 
 ---
-Click on the tab `Access Keys` :  That key was created during the build script too.
+Click on the tab `Access Keys` :  The key was created during the build too.
 ---
 ![](./images/access_keys_view.png)
 ---
-Click on the table `Buckets` 
+Click on the tab: `Buckets` 
 ---
 ![](./images/initial_bucket_view.png)
 
