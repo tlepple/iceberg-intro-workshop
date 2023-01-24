@@ -2,6 +2,18 @@
 
 ---
 
+## Objective:
+
+ * notes go here:
+
+---
+
+###  Pre-Requisites:
+
+ * notes go here:
+
+---
+
 ##  Install Git tools and pull the repo
 *  ssh into your new Ubuntu 20.04 instance and run the below command:
 
@@ -20,7 +32,7 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 
 ## Start the build:
 
-####  this script will setup and confgure the following tools on this one host:
+####  This script will setup and confgure the following tools on this one host:
  - minio (local S3a Service) (RELEASE.2023-01-12T02-06-16Z )
  - minio cli  (version RELEASE.2023-01-11T03-14-16Z )
  - openjdk 11 (version: )
@@ -39,31 +51,32 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 ```
 
 ---
+## Let's Explore Minio
+
+  * notes and images go here:
+
+---
 
 ## Start a standalone Spark Master Server 
 
 ```
-
 cd $SPARK_HOME
 
 . ./sbin/start-master.sh
-
-
 ```
 
 ---
 
-## Start a Spark Worker Server on the master
+## Start a Spark Worker Server 
 
 ```
 . ./sbin/start-worker.sh spark://$(hostname -f):7077
-
 ```
 
 ---
 
 ##  Check that the Spark GUI is up:
- * navigate to `http:\\<host ip address>:8080
+ * navigate to `http:\\<host ip address>:8080`
 
 ---
 
@@ -93,7 +106,6 @@ done
 ###  Start the Spark-SQL client service:
 
 ```
-
 cd $SPARK_HOME
 
 spark-sql --packages $DEPENDENCIES \
@@ -121,7 +133,6 @@ spark-sql --packages $DEPENDENCIES \
 
 ```
 SHOW CURRENT NAMESPACE;
-
 ```
 
 #### Expected Output:
@@ -129,6 +140,5 @@ SHOW CURRENT NAMESPACE;
 ```
 icecatalog
 Time taken: 2.692 seconds, Fetched 1 row(s)
-
 ```
 
