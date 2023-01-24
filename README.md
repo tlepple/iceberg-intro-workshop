@@ -52,8 +52,13 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 ---
 ## Let's Explore Minio
 
-  * notes and images go here:
+Let's login into the minio GUI
 
+  - Username: `icebergadmin`
+  - Password: `supersecret1!1
+
+---
+![](./images/minio_login_screen.png)
 ---
 
 ## Start a standalone Spark Master Server 
