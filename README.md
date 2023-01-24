@@ -48,6 +48,7 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 #  run it:
 . ~/iceberg-intro-workshop/setup_iceberg.sh
 ```
+ * Grab a coffee, this will run a while.
 
 ---
 ## Let's Explore Minio
