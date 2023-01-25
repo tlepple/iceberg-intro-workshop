@@ -140,6 +140,7 @@ cd $SPARK_HOME
 
 spark-sql --packages $DEPENDENCIES \
 --conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
+--conf spark.sql.cli.print.header=true \
 --conf spark.sql.catalog.icecatalog=org.apache.iceberg.spark.SparkCatalog \
 --conf spark.sql.catalog.icecatalog.catalog-impl=org.apache.iceberg.jdbc.JdbcCatalog \
 --conf spark.sql.catalog.icecatalog.uri=jdbc:postgresql://127.0.0.1:5432/icecatalog \
