@@ -307,10 +307,10 @@ PARTITIONED BY (state);
 ---
 
 ###  Insert some records:
-  *  in this step we will load up some json records from a file created during setup.
-
-We will create a temporary view against this json file and then load the file with an INSERT statement.
+  *  In this step we will load up some json records from a file created during setup.
+  *  We will create a temporary view against this json file and then load the file with an INSERT statement.
 ---
+
 ```
 # Create temporary view statement:
 CREATE TEMPORARY VIEW customerView
