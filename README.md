@@ -155,67 +155,6 @@ spark-sql --packages $DEPENDENCIES \
 --conf spark.history.fs.logDirectory=/opt/spark/spark-events \
 --conf spark.sql.catalogImplementation=in-memory
 ```
-
----
-
-###  Let's do a cursory check
-
-```
-SHOW CURRENT NAMESPACE;
-```
-
-#### Expected Output:
-
-```
-icecatalog
-Time taken: 2.692 seconds, Fetched 1 row(s)
-```
----
-
-##  Lab 1
-  * In this lab we will create our first iceberg table with `Spark-SQL`
-
-### Start the `SparkSQL` cli tool
- * from a terminal prompt run:
-
-```
-cd $SPARK_HOME
-
-i. ~/minio-output.properties
-
-export AWS_ACCESS_KEY_ID=$access_key
-export AWS_SECRET_ACCESS_KEY=$secret_key
-export AWS_S3_ENDPOINT=127.0.0.1:9000
-export AWS_REGION=us-east-1
-export MINIO_REGION=us-east-1
-export DEPENDENCIES="org.apache.iceberg:iceberg-spark-runtime-3.3_2.12:1.1.0"
-export AWS_SDK_VERSION=2.19.19
-export AWS_MAVEN_GROUP=software.amazon.awssdk
-export AWS_PACKAGES=(
-"bundle"
-"url-connection-client"
-)
-for pkg in "${AWS_PACKAGES[@]}"; do
-export DEPENDENCIES+=",$AWS_MAVEN_GROUP:$pkg:$AWS_SDK_VERSION"
-done
-
-spark-sql --packages $DEPENDENCIES \
---conf spark.sql.extensions=org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions \
---conf spark.sql.catalog.icecatalog=org.apache.iceberg.spark.SparkCatalog \
---conf spark.sql.catalog.icecatalog.catalog-impl=org.apache.iceberg.jdbc.JdbcCatalog \
---conf spark.sql.catalog.icecatalog.uri=jdbc:postgresql://127.0.0.1:5432/icecatalog \
---conf spark.sql.catalog.icecatalog.jdbc.user=icecatalog \
---conf spark.sql.catalog.icecatalog.jdbc.password=supersecret1 \
---conf spark.sql.catalog.icecatalog.warehouse=s3://iceberg-data \
---conf spark.sql.catalog.icecatalog.io-impl=org.apache.iceberg.aws.s3.S3FileIO \
---conf spark.sql.catalog.icecatalog.s3.endpoint=http://127.0.0.1:9000 \
---conf spark.sql.catalog.sparkcatalog=org.apache.iceberg.spark.SparkSessionCatalog \
---conf spark.sql.defaultCatalog=icecatalog \
---conf spark.eventLog.enabled=true \
---conf spark.eventLog.dir=/opt/spark/spark-events \
---conf spark.history.fs.logDirectory=/opt/spark/spark-events \
---conf spark.sql.catalogImplementation=in-memory
-```
 ---
 ####  Expected Output:
   *  the warnings can be ingored
@@ -272,6 +211,28 @@ Spark master: local[*], Application Id: local-1674676103468
 spark-sql>
 
 ```
+---
+
+###  Let's do a cursory check
+
+```
+SHOW CURRENT NAMESPACE;
+```
+
+#### Expected Output:
+
+```
+icecatalog
+Time taken: 2.692 seconds, Fetched 1 row(s)
+```
+---
+
+##  Lab 1
+  * In this lab we will create our first iceberg table with `Spark-SQL`
+
+### Start the `SparkSQL` cli tool
+ * from a terminal prompt run:
+
 ---
 
 ### Create Table:
