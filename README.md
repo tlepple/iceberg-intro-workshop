@@ -320,8 +320,23 @@ CREATE TEMPORARY VIEW customerView
   );
 
 # Load the existing icegberg table (created earlier) with:
-INSERT INTO icecatalog.icecatalog.customer c
-USING (SELECT * FROM customerView);
+INSERT INTO icecatalog.icecatalog.customer 
+    SELECT 
+             first_name, 
+             last_name, 
+             street_address, 
+             city, 
+             state, 
+             zip_code, 
+             home_phone,
+             mobile,
+             email,
+             ssn,
+             job_title,
+             create_date,
+             cust_id
+    FROM customerView;
+
 ```
 ---
 
