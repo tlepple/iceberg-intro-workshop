@@ -170,4 +170,39 @@ SHOW CURRENT NAMESPACE;
 icecatalog
 Time taken: 2.692 seconds, Fetched 1 row(s)
 ```
+---
+
+##  Lab 1
+  * In this lab we will create our first iceberg table with `Spark-SQL`
+
+### Create Table:
+
+```
+CREATE TABLE icecatalog.icecatalog.customer (
+    first_name STRING,
+    last_name STRING,
+    street_address STRING,
+    city STRING,
+    state STRING,
+    zip_code STRING,
+    home_phone STRING,
+    mobile STRING,
+    email STRING,
+    ssn STRING,
+    job_title STRING,
+    create_date STRING,
+    cust_id BIGINT)
+USING iceberg
+OPTIONS (
+    'write.object-storage.enabled'=true,
+    'write.data.path'='s3://iceberg-data')
+PARTITIONED BY (state);
+```
+
+---
+
+###  Go examine the bucket in Minio from the GUI
+---
+![](./images/bucket_first_table_metadata_view.png)
+---
 
