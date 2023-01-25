@@ -340,3 +340,22 @@ INSERT INTO icecatalog.icecatalog.customer
 ```
 ---
 
+### Let's Add and Update some rows with the `MERGE` Statement:
+
+---
+
+```
+# Create temporary view statement:
+CREATE TEMPORARY VIEW mergeCustomerView
+  USING org.apache.spark.sql.json
+  OPTIONS (
+    path "/opt/spark/input/update_customers.json"
+  );
+
+# Merge records from a json file:  
+MERGE INTO icecatalog.icecatalog.customer c
+USING (SELECT  * FROM mergeCustomerView) mc
+ON c.cust_id = mc.cust_id
+WHEN NOT MATCHED THEN INSERT *;
+```
+
