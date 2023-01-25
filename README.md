@@ -334,8 +334,8 @@ SELECT
      committed_at, 
      snapshot_id, 
      parent_id 
-  FROM icecatalog.icecatalog.customer.snapshots;
-
+  FROM icecatalog.icecatalog.customer.snapshots
+  ORDER BY committed_at;
 ```
 ---
 
