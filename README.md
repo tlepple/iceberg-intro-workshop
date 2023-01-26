@@ -545,7 +545,7 @@ transactionsDF.printSchema()
 # print out the dataframe in this cli
 transactionsDF.show()
 
-# Create a new table called 'icecatalog.icecatalog.transactions' from this DataFrame
+# Append these transactions to the table we created in an earlier step `icecatalog.icecatalog.transactions`
 transactionsDF.writeTo("icecatalog.icecatalog.transactions").append()
 
 # stop the sparkSession
