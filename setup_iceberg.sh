@@ -318,9 +318,47 @@ cat <<EOF > /opt/spark/input/update_customers.json
 EOF
 
 ##########################################################################################
-#
+#  Let's add some transactions for these customers for a lab
 ##########################################################################################
-
+cat <<EOF > /opt/spark/input/transactions.json
+{'transact_id': '586fef8b-00da-4216-832a-a0eb5211b54a', 'category': 'purple', 'barcode': '4541397840276', 'item_desc': 'Than explain cover.', 'amount': 50.63, 'transaction_date': '2023-01-08 00:11:25', 'cust_id': 10}
+{'transact_id': 'e8809684-7997-4ccf-96df-02fd57ca9d6f', 'category': 'green', 'barcode': '2308832642138', 'item_desc': 'Necessary body oil.', 'amount': 95.37, 'transaction_date': '2023-01-23 17:23:04', 'cust_id': 10}
+{'transact_id': '18bb3472-56c0-48e3-a599-72f54a706b58', 'category': 'teal', 'barcode': '1644304420912', 'item_desc': 'Recent property act five issue physical.', 'amount': 9.71, 'transaction_date': '2023-01-18 18:12:44', 'cust_id': 10}
+{'transact_id': 'a520859f-7cde-4294-bf79-ec2ef0c2467f', 'category': 'white', 'barcode': '6996277154185', 'item_desc': 'Entire worry hospital feel may.', 'amount': 92.69, 'transaction_date': '2023-01-03 13:45:03', 'cust_id': 10}
+{'transact_id': '3922d6a1-d112-411e-9e78-bb4671e84fff', 'category': 'purple', 'barcode': '7318960584434', 'item_desc': 'Finally kind country thank.', 'amount': 21.89, 'transaction_date': '2022-12-29 09:00:26', 'cust_id': 11}
+{'transact_id': 'fe40fd4c-6111-49b8-83c3-843211b1f10e', 'category': 'olive', 'barcode': '4676656262244', 'item_desc': 'Strong likely specific program artist information.', 'amount': 24.97, 'transaction_date': '2023-01-19 03:47:12', 'cust_id': 11}
+{'transact_id': '331def13-f644-4099-8ac0-2fcc704e800f', 'category': 'aqua', 'barcode': '2299973443220', 'item_desc': 'Store blue conference those.', 'amount': 68.98, 'transaction_date': '2023-01-13 10:07:46', 'cust_id': 14}
+{'transact_id': '57cdb9b6-d370-4aa2-8fbc-d2d8f1a15915', 'category': 'silver', 'barcode': '1115162814798', 'item_desc': 'Court dog method interesting cup.', 'amount': 66.5, 'transaction_date': '2022-12-29 06:04:30', 'cust_id': 14}
+{'transact_id': '9124d0ef-9374-441e-9b33-31eb31a90ced', 'category': 'gray', 'barcode': '5617858920203', 'item_desc': 'Black director after person ahead red.', 'amount': 26.96, 'transaction_date': '2023-01-11 19:20:39', 'cust_id': 14}
+{'transact_id': 'd418abe1-63dc-4cae-b152-f3cc92d0ad4a', 'category': 'yellow', 'barcode': '1829792571456', 'item_desc': 'Lead today best power see message.', 'amount': 11.24, 'transaction_date': '2022-12-31 03:16:32', 'cust_id': 14}
+{'transact_id': '422a413a-590b-4f72-8aeb-a51c80318132', 'category': 'aqua', 'barcode': '9406622469286', 'item_desc': 'Power itself job see.', 'amount': 6.82, 'transaction_date': '2023-01-09 19:09:29', 'cust_id': 15}
+{'transact_id': 'bc4125fc-08cb-4abe-8b13-b3b1903ae9c6', 'category': 'black', 'barcode': '7753423715275', 'item_desc': 'Material risk first.', 'amount': 89.39, 'transaction_date': '2023-01-23 03:24:02', 'cust_id': 15}
+{'transact_id': 'ff4e4369-bcef-438b-87e2-457c9d684c98', 'category': 'black', 'barcode': '2242895060556', 'item_desc': 'Foreign strong walk admit specific firm.', 'amount': 63.49, 'transaction_date': '2022-12-29 22:12:09', 'cust_id': 15}
+{'transact_id': 'd00a9e7a-0cea-428f-9145-a143fef36f99', 'category': 'black', 'barcode': '3010754625845', 'item_desc': 'Own book move for.', 'amount': 49.7, 'transaction_date': '2023-01-12 21:42:32', 'cust_id': 15}
+{'transact_id': '33afa171-a652-4291-984d-6f52434bedf9', 'category': 'green', 'barcode': '7885711282777', 'item_desc': 'Without beat then crime decide.', 'amount': 10.45, 'transaction_date': '2023-01-05 04:33:24', 'cust_id': 15}
+{'transact_id': 'cfba6338-f816-4b73-a972-19a7f847f45e', 'category': 'aqua', 'barcode': '8802078025372', 'item_desc': 'Site win movie.', 'amount': 34.12, 'transaction_date': '2023-01-07 12:22:34', 'cust_id': 16}
+{'transact_id': '5223b620-5eef-4fac-ac95-3514ba3ecf6f', 'category': 'olive', 'barcode': '9389514040254', 'item_desc': 'Agree enjoy four south wall.', 'amount': 96.14, 'transaction_date': '2022-12-28 17:06:04', 'cust_id': 16}
+{'transact_id': '33725df2-e14b-45a1-ac5d-50826e9a55c9', 'category': 'blue', 'barcode': '6079280166809', 'item_desc': 'Concern his debate follow guess generation.', 'amount': 3.38, 'transaction_date': '2023-01-17 20:53:25', 'cust_id': 16}
+{'transact_id': '6a707466-7b43-4af1-8d31-a271a6b844c6', 'category': 'yellow', 'barcode': '5723406697760', 'item_desc': 'Republican sure risk read.', 'amount': 2.67, 'transaction_date': '2023-01-02 15:40:17', 'cust_id': 16}
+{'transact_id': '5a31670b-9b68-43f2-a521-9c78b62ab791', 'category': 'black', 'barcode': '0555188918000', 'item_desc': 'Sense recently than floor help.', 'amount': 68.85, 'transaction_date': '2023-01-12 03:21:06', 'cust_id': 16}
+{'transact_id': '499e66d2-9d14-4f01-b406-3ece92533be8', 'category': 'silver', 'barcode': '0298273765225', 'item_desc': 'Body chance or bed eye.', 'amount': 54.62, 'transaction_date': '2023-01-08 20:50:39', 'cust_id': 17}
+{'transact_id': '02944716-af02-41a5-9c0c-fe120800e046', 'category': 'olive', 'barcode': '6233146681961', 'item_desc': 'Represent sell speech money night analysis.', 'amount': 17.21, 'transaction_date': '2023-01-18 11:17:00', 'cust_id': 17}
+{'transact_id': 'f2946f03-67ee-433e-84e1-4108a2db49f6', 'category': 'lime', 'barcode': '4853164762385', 'item_desc': 'Beyond say respond.', 'amount': 5.18, 'transaction_date': '2022-12-29 06:06:12', 'cust_id': 17}
+{'transact_id': '2d6cb57d-8636-438b-aad2-afe9e90df51e', 'category': 'navy', 'barcode': '4194943690230', 'item_desc': 'Heart director physical finish authority.', 'amount': 95.69, 'transaction_date': '2023-01-24 22:24:36', 'cust_id': 18}
+{'transact_id': 'a947ea34-65d0-4f63-aa07-a8007b577102', 'category': 'purple', 'barcode': '1881524702910', 'item_desc': 'Impact suddenly character impact father order.', 'amount': 39.99, 'transaction_date': '2022-12-30 22:23:08', 'cust_id': 18}
+{'transact_id': '02528b68-b537-4d04-9077-18712704abfc', 'category': 'yellow', 'barcode': '3905500585729', 'item_desc': 'Rock a be.', 'amount': 12.59, 'transaction_date': '2023-01-26 00:06:45', 'cust_id': 18}
+{'transact_id': '389c4c6c-ac54-424e-8dd3-e4a22360efa0', 'category': 'teal', 'barcode': '4466529660662', 'item_desc': 'Take group cost defense send trouble.', 'amount': 71.48, 'transaction_date': '2023-01-21 21:44:42', 'cust_id': 18}
+{'transact_id': '1568a178-9913-47cc-8d29-a42b67e10735', 'category': 'white', 'barcode': '8559913297868', 'item_desc': 'Politics such help.', 'amount': 14.57, 'transaction_date': '2023-01-25 19:03:23', 'cust_id': 18}
+{'transact_id': '6430cfc8-ee6f-4edb-8616-d63cfe09d18b', 'category': 'silver', 'barcode': '1411496208099', 'item_desc': 'Serve certain focus bring sometimes trade.', 'amount': 19.13, 'transaction_date': '2023-01-01 00:35:52', 'cust_id': 19}
+{'transact_id': '43f4d221-559d-43b1-bb65-228e26194408', 'category': 'maroon', 'barcode': '6697633324593', 'item_desc': 'Already level finally.', 'amount': 96.54, 'transaction_date': '2022-12-30 13:36:56', 'cust_id': 20}
+{'transact_id': '24b696f8-eab8-4496-9634-5a396717ae22', 'category': 'olive', 'barcode': '6901266689999', 'item_desc': 'Level billion suffer.', 'amount': 33.54, 'transaction_date': '2023-01-01 08:04:41', 'cust_id': 21}
+{'transact_id': '321e81c2-a0af-4092-b71e-0f00f2a20018', 'category': 'fuchsia', 'barcode': '4062429681198', 'item_desc': 'Serious hospital hit yeah.', 'amount': 73.42, 'transaction_date': '2023-01-07 01:20:14', 'cust_id': 21}
+{'transact_id': '335ee894-b420-4b9b-923b-d4dd271f0578', 'category': 'gray', 'barcode': '2459484608482', 'item_desc': 'Although air themselves popular.', 'amount': 82.64, 'transaction_date': '2023-01-21 16:56:27', 'cust_id': 21}
+{'transact_id': 'fb94a691-52a8-4680-8699-bba0487e1c19', 'category': 'white', 'barcode': '6474962867775', 'item_desc': 'Billion plant able PM.', 'amount': 37.91, 'transaction_date': '2023-01-24 19:56:44', 'cust_id': 21}
+{'transact_id': '1b4e61c3-9f24-48e7-a7d8-4c02ec289a2d', 'category': 'olive', 'barcode': '1811234564652', 'item_desc': 'Either woman democratic Mr maintain treat.', 'amount': 38.77, 'transaction_date': '2022-12-31 15:48:25', 'cust_id': 23}
+{'transact_id': '372c9bf1-64d8-4821-b9bb-9bae14374eb9', 'category': 'purple', 'barcode': '1797658169270', 'item_desc': 'National actually eight present.', 'amount': 25.6, 'transaction_date': '2023-01-20 10:49:38', 'cust_id': 23}
+{'transact_id': 'e4981336-e09c-436b-a54c-5d2a9a88d7e0', 'category': 'teal', 'barcode': '7134112068801', 'item_desc': 'While assume executive customer.', 'amount': 56.41, 'transaction_date': '2023-01-17 10:13:19', 'cust_id': 23}
+EOF
 #########################################################################################
 # add to items to path for future use
 #########################################################################################
