@@ -4,7 +4,7 @@
 
 ## Objective:
 
- * To stand up an environment to evaluate Apache Iceberg with data stored in an S3a service (minio) on a traditional server.
+ * To evaluate Apache Iceberg with data stored in an S3a service (minio) on a traditional linux server.
 
 ---
 
