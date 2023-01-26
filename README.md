@@ -1,3 +1,11 @@
+---
+Title:  Apache Iceberg Exploration with S3A storage. 
+Author:  Tim Lepple
+Date:  1.26.2023
+Comments:  This repo will evolve over time with new items.
+Tags:  Apache Iceberg | Minio | Apache SparkSQL | PySpark
+---
+
 # Apache Iceberg Introduction Workshop
 
 ---
