@@ -11,7 +11,7 @@ My goal in this exercise was to go a little deeper than your typical `How To` gu
 ---
 ## But Why Apache Iceberg:
 
-A couple of items really jumped out at me when I read the documentation for the first time and I immediately saw the significance benefit it could provide.  Namely it could reduce the overall expense of enterprises to store and process the data they produce.  We all know that saving money in an enterprise is a good thing.  Here are the two items that really hit home for me:
+A couple of items really jumped out at me when I read the documentation for the first time and I immediately saw the significant benefit it could provide.  Namely it could reduce the overall expense of enterprises to store and process the data they produce.  We all know that saving money in an enterprise is a good thing.  Here are the two items that really hit home for me:
 
   *  Iceberg is designed for huge tables and is used in production where a single table can contain tens of petabytes of data.  This data is stored in modern day object stores in either a cloud provider like [Amazon S3](https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3) or in an on-premise solution like [Minio](https://min.io/).  The savings here can be significant.
   *  Even multi-petabyte tables can be read from a single node, without needing a distributed SQL engine to sift through table metadata.  That means the tools used in the examples I give below could be used to query the data stored in object stores without needing to dedicate expensive compute servers.
