@@ -155,7 +155,10 @@ sudo mkdir -p /opt/app/minio/data
 sudo groupadd -r minio-user
 sudo useradd -M -r -g minio-user minio-user
 
+##########################################################################################
 # grant permission to this directory to minio-user
+##########################################################################################
+
 sudo chown -R minio-user:minio-user /opt/app/minio/
 
 ##########################################################################################
@@ -347,6 +350,7 @@ cat <<EOF > /opt/spark/input/transactions.json
 {'transact_id': '372c9bf1-64d8-4821-b9bb-9bae14374eb9', 'category': 'purple', 'barcode': '1797658169270', 'item_desc': 'National actually eight present.', 'amount': 25.6, 'transaction_date': '2023-01-20 10:49:38', 'cust_id': 23}
 {'transact_id': 'e4981336-e09c-436b-a54c-5d2a9a88d7e0', 'category': 'teal', 'barcode': '7134112068801', 'item_desc': 'While assume executive customer.', 'amount': 56.41, 'transaction_date': '2023-01-17 10:13:19', 'cust_id': 23}
 EOF
+
 #########################################################################################
 # add to items to path for future use
 #########################################################################################
