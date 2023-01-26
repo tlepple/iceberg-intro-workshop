@@ -397,6 +397,7 @@ Time taken: 0.482 seconds, Fetched 2 row(s)
 ###  Query of the table after our first INSERT statement:
   *  replace thse snapshop id with your value:
 
+In this step we will get results that show the data as it was originally loaded.
 ```
 SELECT * 
   FROM icecatalog.icecatalog.customer 
@@ -420,6 +421,8 @@ Time taken: 0.697 seconds, Fetched 5 row(s)
 
 ### Query to get the results after the MERGE statement.
   *  replace thse snapshop id with your value:
+
+In this step we will see results that have applied updates to existing rows and create some new rows.
 
 ```
 SELECT * 
