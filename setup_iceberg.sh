@@ -264,7 +264,7 @@ aws configure set aws_secret_access_key $secret_key
 aws configure set default.region us-east-1
 
 ##########################################################################################
-#  let's test by listing our buckets:
+#  let's test that the aws cli can list our buckets in minio:
 ##########################################################################################
 aws --endpoint-url http://127.0.0.1:9000 s3 ls
 
