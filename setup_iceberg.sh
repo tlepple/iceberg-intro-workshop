@@ -3,7 +3,7 @@
 ##########################################################################################
 #  make sure some utils are installed in the OS
 #########################################################################################
-sudo apt-get install wget curl
+sudo apt-get install wget curl -y
 
 ##########################################################################################
 #  #  going to install a specific version of postgresql (version 14)
