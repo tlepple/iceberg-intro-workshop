@@ -306,6 +306,8 @@ OPTIONS (
 ---
 
 ###  Go examine the bucket in Minio from the GUI
+  * It wrote out all the metadata and files into our object storage from the Apache Iceberg Catalog we created.
+
 ---
 ![](./images/bucket_first_table_metadata_view.png)
 ---
