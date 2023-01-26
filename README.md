@@ -9,7 +9,7 @@
 My goal in this exercise was to go a little deeper than your typical `How To` guide that uses docker to spin up an enviroment. If that is what you are interested in the [Apache Iceberg website](https://iceberg.apache.org/spark-quickstart/) has a great quickstart for that. It has been my experience that to truely understand how some technologies work you need to know how they are wired together.  I took the time to install all the components manually and then I built the setup script in this repo so others could try it out too.  Please take the time to review that script `setup_iceberg.sh`.  Hopefully it becomes a reference for you one day.
 
 ---
-But Why Apache Iceberg:
+## But Why Apache Iceberg:
 
 A couple of items really jumped out at me when I read the documentation for the first time and I immediately saw the significant benefit it could provide.  Namely it could reduce the overall expense of enterprises to store and process the data they produce.  We all know that saving money in an enterprise is a good thing.  Here are the two items that really hit home for me:
 
