@@ -48,7 +48,7 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 #  run it:
 . ~/iceberg-intro-workshop/setup_iceberg.sh
 ```
- * Grab a coffee, this will run a while.
+ * Refill your coffee, this will run for about 5 min.
 
 ---
 ## Run an aws cli command against our local minio server
