@@ -1,4 +1,4 @@
-# iceberg-intro-workshop
+# Apache Iceberg Introduction Workshop
 
 ---
 
