@@ -359,9 +359,36 @@ CREATE TEMPORARY VIEW mergeCustomerView
   );
 
 # Merge records from a json file:  
-MERGE INTO icecatalog.icecatalog.customer c
-USING (SELECT  * FROM mergeCustomerView) mc
-ON c.cust_id = mc.cust_id
+MERGE INTO icecatalog.icecatlog.customer c
+USING (SELECT
+             first_name,
+             last_name,
+             street_address,
+             city,
+             state,
+             zip_code,
+             home_phone,
+             mobile,
+             email,
+             ssn,
+             job_title,
+             create_date,
+             cust_id
+       FROM jsonTable)
+ON c.id = j.id
+WHEN MATCHED THEN UPDATE SET
+             c.first_name = j.first_name,
+             c.last_name = j.last_name,
+             c.street_address = j.street_address,
+             c.city = j.city,
+             c.state = j.state,
+             c.zip_code = j.zip_code,
+             c.home_phone = j.home_phone,
+             c.mobile = j.mobile,
+             c.email = j.email,
+             c.ssn = j.ssn,
+             c.job_title = j.job_title,
+             c.create_date = j.create_date
 WHEN NOT MATCHED THEN INSERT *;
 ```
 
