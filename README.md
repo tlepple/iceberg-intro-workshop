@@ -462,6 +462,7 @@ exit;
 ---
 
 ### Let's try out `pyspark` and load our `Transactions` table with a pyspark dataFrame
+  * pyspark isn't as feature rich as the sparksql client (in future versions it should catch up)
 
 ---
 
