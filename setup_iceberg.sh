@@ -11,7 +11,7 @@ sudo apt-get install wget curl -y
 apt policy postgresql
 
 ##########################################################################################
-#  install the pgp key for this version:
+#  install the pgp key for this version of postgresql:
 ##########################################################################################
 curl -fsSL https://www.postgresql.org/media/keys/ACCC4CF8.asc|sudo gpg --dearmor -o /etc/apt/trusted.gpg.d/postgresql.gpg
 
@@ -24,22 +24,22 @@ sudo apt install postgresql-14 -y
 sudo systemctl enable postgresql
 
 ##########################################################################################
-#  backup the orig conf file
+#  backup the original postgresql conf file
 ##########################################################################################
 sudo cp /etc/postgresql/14/main/postgresql.conf /etc/postgresql/14/main/postgresql.conf.orig
 
 ##########################################################################################
-## Allow listeners from any host
+# setup the database to allow listeners from any host
 ##########################################################################################
 sudo sed -e 's,#listen_addresses = \x27localhost\x27,listen_addresses = \x27*\x27,g' -i /etc/postgresql/14/main/postgresql.conf
 
 ##########################################################################################
-## Increase number of connections
+# Increase number of connections allow in the database
 ##########################################################################################
 sudo sed -e 's,max_connections = 100,max_connections = 300,g' -i /etc/postgresql/14/main/postgresql.conf
 
 ##########################################################################################
-#  create a new pg_hba.conf
+#  create a new 'pg_hba.conf' file
 ##########################################################################################
 sudo mv /etc/postgresql/14/main/pg_hba.conf /etc/postgresql/14/main/pg_hba.conf.orig
 
@@ -51,7 +51,7 @@ cat <<EOF > pg_hba.conf
 EOF
 
 ##########################################################################################
-#   set owner and permissions
+#   set owner and permissions of this conf file
 ##########################################################################################
 sudo mv pg_hba.conf /etc/postgresql/14/main/pg_hba.conf
 sudo chown postgres:postgres /etc/postgresql/14/main/pg_hba.conf
@@ -75,7 +75,7 @@ CREATE SCHEMA icecatalog;
 EOF
 
 ##########################################################################################
-## Run the sql file to create the schema for all DB’s
+# Run the sql DDL file to create the schema for all DB’s
 ##########################################################################################
 sudo -u postgres psql < ~/create_ddl_icecatalog.sql
 
@@ -85,12 +85,12 @@ sudo -u postgres psql < ~/create_ddl_icecatalog.sql
 sudo apt install postgresql-client  -y
 
 ##########################################################################################
-#  Install Java 11:echo
+#  Install Java 11 jdk
 ##########################################################################################
 sudo apt install openjdk-11-jdk -y
 
 ##########################################################################################
-#  Install Maven - not sure if needed:
+#  Install Maven 
 ##########################################################################################
 sudo apt install maven -y
 
@@ -114,14 +114,14 @@ sudo apt install awscli -y
 sudo apt install -y mlocate
 
 ##########################################################################################
-#  jdbc for postgres:  download
+#  download the jdbc jar file for postgres:  
 ##########################################################################################
 wget https://jdbc.postgresql.org/download/postgresql-42.5.1.jar
 
 sudo cp postgresql-42.5.1.jar /opt/spark/jars/
 
 ##########################################################################################
-# need some aws jars:
+# download some aws jars:
 ##########################################################################################
 wget https://repo1.maven.org/maven2/software/amazon/awssdk/bundle/2.19.19/bundle-2.19.19.jar
 
@@ -132,7 +132,7 @@ wget https://repo1.maven.org/maven2/software/amazon/awssdk/url-connection-client
 cp url-connection-client-2.19.19.jar /opt/spark/jars/
 
 ##########################################################################################
-#  need iceberg spark runtime to
+#  download iceberg spark runtime 
 ##########################################################################################
 wget https://repo.maven.apache.org/maven2/org/apache/iceberg/iceberg-spark-runtime-3.3_2.12/1.1.0/iceberg-spark-runtime-3.3_2.12-1.1.0.jar
 
@@ -197,15 +197,13 @@ sudo mv ~/minio.properties /etc/default/minio
 
 sudo chown root:root /etc/default/minio
 
-
 ##########################################################################################
 #  start the minio server:
 ##########################################################################################
 sudo systemctl start minio.service
 
-
 ##########################################################################################
-#  Install the MinIO Client on this server host:
+#  Install the MinIO Client on this server 
 ##########################################################################################
 curl https://dl.min.io/client/mc/release/linux-amd64/mc \
   --create-dirs \
@@ -220,17 +218,17 @@ export PATH=$PATH:$HOME/minio-binaries/
 mc alias set local http://127.0.0.1:9000 minioroot supersecret1
 
 ##########################################################################################
-#  lets create a user for iceberg metadata & tables using the alias we just set
+#  lets create a user for iceberg metadata & tables using the minio cli and the  alias we just set
 ##########################################################################################
 mc admin user add local icebergadmin supersecret1!
 
 ##########################################################################################
-# need to add the 'readwrite' policy to this new user:
+# need to add the 'readwrite' minio policy to this new user: (these are just like aws policies)
 ##########################################################################################
 mc admin policy set local readwrite user=icebergadmin
 
 ##########################################################################################
-#  create a new alias for this user:
+#  create a new alias for this admin user:
 ##########################################################################################
 mc alias set icebergadmin http://127.0.0.1:9000 icebergadmin supersecret1!
 
@@ -245,7 +243,7 @@ mc admin user svcacct add icebergadmin icebergadmin >> ~/minio-output.properties
 mc mb icebergadmin/iceberg-data icebergadmin
 
 ##########################################################################################
-#  let's reformat the output of keys from an earlier step
+#  let's reformat the output of access keys from an earlier step
 ##########################################################################################
 sed -i "s/Access Key: /access_key=/g" ~/minio-output.properties
 sed -i "s/Secret Key: /secret_key=/g" ~/minio-output.properties
@@ -268,6 +266,7 @@ aws configure set default.region us-east-1
 ##########################################################################################
 aws --endpoint-url http://127.0.0.1:9000 s3 ls
 
+echo
 ##########################################################################################
 #   create a directory for spark events, logs and some json files to be used in a lab
 ##########################################################################################
