@@ -276,7 +276,7 @@ mkdir -p /opt/spark/spark-events
 mkdir -p /opt/spark/input
 
 ##########################################################################################
-#  Create a json records file to be used in a lab
+#  Create a json records file of sample customer data to be used in a lab
 ##########################################################################################
 
 cat <<EOF > /opt/spark/input/customers.json
@@ -288,7 +288,7 @@ cat <<EOF > /opt/spark/input/customers.json
 EOF
 
 ##########################################################################################
-#  Create another json records file to be used in a Merge Query in a lab
+#  Create another json records file to test out a  Merge Query in a lab
 ##########################################################################################
 
 cat <<EOF > /opt/spark/input/update_customers.json
