@@ -36,6 +36,8 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 
 ### Start the build:
 
+---
+
 ####  This script will setup and confgure the following tools on this one host:
  - minio (local S3a Service) (RELEASE.2023-01-12T02-06-16Z )
  - minio cli  (version RELEASE.2023-01-11T03-14-16Z )
