@@ -250,7 +250,7 @@ Time taken: 2.692 seconds, Fetched 1 row(s)
 ```
 ---
 
-###  Lab Exercises begin here:
+###  Lab exercises begin here:
   * In this lab we will create our first iceberg table with `Spark-SQL`
 
 ### Start the `SparkSQL` cli tool
