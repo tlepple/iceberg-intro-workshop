@@ -236,10 +236,11 @@ Time taken: 2.692 seconds, Fetched 1 row(s)
 
 ---
 
-### Create Table:
-  * This will be run in the spark-sql cli
+### Create Tables:
+  * These will be run in the spark-sql cli
 
 ```
+# Create Customer table:
 CREATE TABLE icecatalog.icecatalog.customer (
     first_name STRING,
     last_name STRING,
@@ -259,6 +260,20 @@ OPTIONS (
     'write.object-storage.enabled'=true,
     'write.data.path'='s3://iceberg-data')
 PARTITIONED BY (state);
+
+# Create Transactions table:
+CREATE TABLE icecatalog.icecatalog.transactions (
+    transact_id STRING,
+    transaction_date STRING,
+    item_desc STRING,
+    barcode STRING,
+    category STRING,
+    amount STRING,
+    cust_id BIGINT)
+USING iceberg
+OPTIONS (
+    'write.object-storage.enabled'=true,
+    'write.data.path'='s3://iceberg-data');
 ```
 
 ---
@@ -406,4 +421,98 @@ Tony    Lee     830 Elizabeth Mill Suite 184    New Heather     UT      59612   
 Time taken: 0.571 seconds, Fetched 15 row(s)
 
 ```
+---
+
+### Let's load our `Transactions` table we create earlier using a pyspark dataFrame:
+
+---
+
+####  Start `pyspark` cli
+
+```
+cd $SPARK_HOME
+pyspark
+```
+
+---
+
+#### Expected Output:
+
+---
+
+```
+Python 3.8.10 (default, Nov 14 2022, 12:59:47) 
+[GCC 9.4.0] on linux
+Type "help", "copyright", "credits" or "license" for more information.
+23/01/26 01:44:27 WARN Utils: Your hostname, spark-ice2 resolves to a loopback address: 127.0.1.1; using 192.168.1.167 instead (on interface eth0)
+23/01/26 01:44:27 WARN Utils: Set SPARK_LOCAL_IP if you need to bind to another address
+Setting default log level to "WARN".
+To adjust logging level use sc.setLogLevel(newLevel). For SparkR, use setLogLevel(newLevel).
+23/01/26 01:44:28 WARN NativeCodeLoader: Unable to load native-hadoop library for your platform... using builtin-java classes where applicable
+Welcome to
+      ____              __
+     / __/__  ___ _____/ /__
+    _\ \/ _ \/ _ `/ __/  '_/
+   /__ / .__/\_,_/_/ /_/\_\   version 3.3.1
+      /_/
+
+Using Python version 3.8.10 (default, Nov 14 2022 12:59:47)
+Spark context Web UI available at http://192.168.1.167:4040
+Spark context available as 'sc' (master = local[*], app id = local-1674697469102).
+SparkSession available as 'spark'.
+>>> 
+
+```
+
+####  Let's run the following code.  
+
+ * code blocks are commented:
+
+```
+# import SparkSession
+from pyspark.sql import SparkSession
+
+# create SparkSession
+spark = SparkSession.builder \
+     .appName("Python Spark SQL example") \
+     .config("spark.jars.packages", "org.apache.iceberg:iceberg-spark-runtime-3.3_2.12:1.1.0,software.amazon.awssdk:bundle:2.19.19,software.amazon.awssdk:url-connection-client:2.19.19") \
+     .config("spark.sql.extensions", "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions") \
+     .config("spark.sql.catalog.icecatalog", "org.apache.iceberg.spark.SparkCatalog") \
+     .config("spark.sql.catalog.icecatalog.catalog-impl", "org.apache.iceberg.jdbc.JdbcCatalog") \
+     .config("spark.sql.catalog.icecatalog.uri", "jdbc:postgresql://127.0.0.1:5432/icecatalog") \
+     .config("spark.sql.catalog.icecatalog.jdbc.user", "icecatalog") \
+     .config("spark.sql.catalog.icecatalog.jdbc.password", "supersecret1") \
+     .config("spark.sql.catalog.icecatalog.warehouse", "s3://iceberg-data") \
+     .config("spark.sql.catalog.icecatalog.io-impl", "org.apache.iceberg.aws.s3.S3FileIO") \
+     .config("spark.sql.catalog.icecatalog.s3.endpoint", "http://127.0.0.1:9000") \
+     .config("spark.sql.catalog.sparkcatalog", "icecatalog") \
+     .config("spark.eventLog.enabled", "true") \
+     .config("spark.eventLog.dir", "/opt/spark/spark-events") \
+     .config("spark.history.fs.logDirectory", "/opt/spark/spark-events") \
+     .config("spark.sql.catalogImplementation", "in-memory") \
+     .getOrCreate()
+
+# A JSON dataset is pointed to by path
+path = "/opt/spark/input/transactions.json"
+
+#  read json into the DataFrame
+transactionsDF = spark.read.json(path)
+
+# visualize the inferred schema
+transactionsDF.printSchema()
+
+# print out the dataframe in this cli
+transactionsDF.show()
+
+# Create a new table called 'icecatalog.icecatalog.transactions' from this DataFrame
+transactionsDF.writeTo("icecatalog.icecatalog.transactions").append()
+
+# stop the sparkSession
+spark.stop()
+
+# Exit out of the editor:
+quit();
+
+```
+---
 
