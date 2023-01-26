@@ -269,7 +269,7 @@ aws configure set default.region us-east-1
 aws --endpoint-url http://127.0.0.1:9000 s3 ls
 
 ##########################################################################################
-#   create a directory for spark events & logs
+#   create a directory for spark events, logs and some json files to be used in a lab
 ##########################################################################################
 mkdir -p /opt/spark/logs
 mkdir -p /opt/spark/spark-events
