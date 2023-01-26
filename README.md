@@ -16,7 +16,7 @@ A couple of items really jumped out at me when I read the documentation for the 
   *  Iceberg is designed for huge tables and is used in production where a single table can contain tens of petabytes of data.  This data is stored in modern day object stores in either a cloud provider like [Amazon S3](https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3) or in an on-premise solution like [Minio](https://min.io/).  The savings here can be significant.
   *  Even multi-petabyte tables can be read from a single node, without needing a distributed SQL engine to sift through table metadata.  That means that the examples I give below could possibly be used to query that data stored in object stores with out needing to dedicate expensive compute servers.
 
-In a series of upcoming workshops, I will build out and document some new technologies that can be integrated with legacy solutions deployed by most organizations today.  It will give you a roadmap into how you can gain insights (in near real-time) from data produced in your legacy systems with minimal impact on those servers.  We will use a Change Data Capture (CDC) to pull the data from log files and deliver it to our Iceberg solution we are building today.
+In a series of upcoming workshops, I will build out and document some new technologies that can be integrated with legacy solutions deployed by most organizations today.  It will give you a roadmap into how you can gain insights (in near real-time) from data produced in your legacy systems with minimal impact on those servers.  We will use a Change Data Capture (CDC) approach to pull the data from log files product by the database providers and deliver it to our Iceberg solution we are building today.
 
 ---
 
