@@ -503,7 +503,7 @@ SparkSession available as 'spark'.
 
 ```
 
-###  Let's run the following code.  
+###  In this section we will load our `Transactions` data from a json file from Pyspark  
 
  * code blocks are commented:
 
