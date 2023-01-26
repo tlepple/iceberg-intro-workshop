@@ -16,7 +16,7 @@
 
 ---
 
-##  Install Git tools and pull the repo
+###  Install Git tools and pull this repo.
 *  ssh into your new Ubuntu 20.04 instance and run the below command:
 
 ---
@@ -31,7 +31,7 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 ---
 
 
-## Start the build:
+### Start the build:
 
 ####  This script will setup and confgure the following tools on this one host:
  - minio (local S3a Service) (RELEASE.2023-01-12T02-06-16Z )
@@ -51,7 +51,8 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
  * Refill your coffee, this will run for about 5 min.
 
 ---
-## Run an aws cli command against our local minio server
+
+### Run an aws cli command against our local minio server
  * all the aws s3 command work in this server.
 
 ```
@@ -63,7 +64,8 @@ aws --endpoint-url http://127.0.0.1:9000 s3 ls
 2023-01-24 22:58:38 iceberg-data
 ```
 ---
-## Let's Explore Minio
+
+### Let's Explore Minio
 
 Let's login into the minio GUI: navigate to `http:\\<host ip address>:9000` in a browser
 
@@ -100,7 +102,7 @@ Click on the tab: `Buckets`
 
 ---
 
-## Start a standalone Spark Master Server 
+### Start a standalone Spark Master Server 
 
 ```
 cd $SPARK_HOME
@@ -110,7 +112,7 @@ cd $SPARK_HOME
 
 ---
 
-## Start a Spark Worker Server 
+### Start a Spark Worker Server 
 
 ```
 . ./sbin/start-worker.sh spark://$(hostname -f):7077
@@ -118,7 +120,7 @@ cd $SPARK_HOME
 
 ---
 
-##  Check that the Spark GUI is up:
+###  Check that the Spark GUI is up:
  * navigate to `http:\\<host ip address>:8080` in a browser
 
 ---
@@ -248,7 +250,7 @@ Time taken: 2.692 seconds, Fetched 1 row(s)
 ```
 ---
 
-##  Lab 1
+###  Lab Exercises begin here:
   * In this lab we will create our first iceberg table with `Spark-SQL`
 
 ### Start the `SparkSQL` cli tool
@@ -385,7 +387,7 @@ Time taken: 0.482 seconds, Fetched 2 row(s)
 
 ---
 
-####  Query of the table after our first INSERT statement:
+###  Query of the table after our first INSERT statement:
   *  replace thse snapshop id with your value:
 
 ```
@@ -409,7 +411,7 @@ Time taken: 0.697 seconds, Fetched 5 row(s)
 ```
 ---
 
-#### Query to get the results after the MERGE statement.
+### Query to get the results after the MERGE statement.
   *  replace thse snapshop id with your value:
 
 ```
@@ -447,7 +449,7 @@ Time taken: 0.571 seconds, Fetched 15 row(s)
 
 ---
 
-####  Start `pyspark` cli
+###  Start `pyspark` cli
 
 ```
 cd $SPARK_HOME
@@ -484,9 +486,11 @@ SparkSession available as 'spark'.
 
 ```
 
-####  Let's run the following code.  
+###  Let's run the following code.  
 
  * code blocks are commented:
+
+---
 
 ```
 # import SparkSession
