@@ -365,7 +365,7 @@ echo "export SPARK_HOME=/opt/spark" >> ~/.profile
 echo "export PATH=$PATH:$SPARK_HOME/bin:$SPARK_HOME/sbin:$JAVA_HOME/bin:$HOME/minio-binaries" >> ~/.profile
 
 #########################################################################################
-# source this to set the new variables in current running session
+# source this to set our new variables in current session
 #########################################################################################
 bash -l
 
