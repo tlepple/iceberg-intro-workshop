@@ -111,6 +111,14 @@ cd $SPARK_HOME
 
 ---
 
+### Sample view of Spark Master.
+
+---
+
+![](./images/spark_master_view.png)
+
+---
+
 ###  Initialize some variables that will be used when we start the Spark-SQL service
 
 ```
