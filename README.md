@@ -413,10 +413,10 @@ SELECT
 #### Output:
 
 ```
-committed_at    snapshot_id     parent_id
-2023-01-25 20:25:17.453 3837599977712977637     NULL
-2023-01-25 20:52:59.826 7079313749846172419     3837599977712977637
-Time taken: 0.482 seconds, Fetched 2 row(s)
+  committed_at    snapshot_id     parent_id
+2023-01-26 16:58:31.873 2216914164877191507     NULL
+2023-01-26 17:00:18.585 3276759594719593733     2216914164877191507
+Time taken: 0.195 seconds, Fetched 2 row(s)
 ```
 
 ---
@@ -426,22 +426,29 @@ Time taken: 0.482 seconds, Fetched 2 row(s)
 
 In this step we will get results that show the data as it was originally loaded.
 ```
-SELECT * 
-  FROM icecatalog.icecatalog.customer 
-  VERSION AS OF 3837599977712977637
+SELECT
+    cust_id,
+    first_name,
+    last_name,
+    create_date
+  FROM icecatalog.icecatalog.customer
+  VERSION AS OF 2216914164877191507
   ORDER by cust_id;
+
+
 ```
 
 ####  Output:
 
 ```
-first_name      last_name       street_address  city    state   zip_code        home_phone      mobile  email   ssn     job_title       create_date     cust_id
-Brenda  Thompson        321 Nicole Ports Suite 204      South Lisachester       AS      89409   486.884.6221x4431       (290)274-1564   wmoran@example.net      483-79-5404     Housing manager/officer 2022-12-25 01:10:43     10
-Jennifer        Anderson        1392 Cervantes Isle     Adrianaton      IN      15867   939-630-6773    904.337.2023x17453      michaeltodd@example.com 583-07-6994     Clinical embryologist   2022-12-03 04:50:07     11
-William Jefferson       543 Matthew Courts      South Nicholaston       WA      17687   +1-599-587-9051x2899    (915)689-1450   peterhouse@example.net  792-52-6700     Land    2022-11-28 08:17:10     12
-Jack    Romero  5929 Karen Ridges       Lake Richardburgh       OR      78947   (402)664-1399x71255     450.580.6817x043        michellemitchell@example.net    216-24-7271     Engineer, building services     2022-12-11 19:09:30     13
-Robert  Johnson 4313 Adams Islands      Tammybury       UT      07361   (477)888-9999   220-403-9274x9709       morrischristopher@example.com   012-26-8650     Rural practice surveyor 2022-12-08 05:28:56     14
-Time taken: 0.697 seconds, Fetched 5 row(s)
+
+cust_id first_name      last_name       create_date
+10      Brenda          Thompson        2022-12-25 01:10:43
+11      Jennifer        Anderson        2022-12-03 04:50:07
+12      William         Jefferson       2022-11-28 08:17:10
+13      Jack            Romero          2022-12-11 19:09:30
+14      Robert          Johnson         2022-12-08 05:28:56
+Time taken: 0.349 seconds, Fetched 5 row(s)
 
 ```
 ---
@@ -452,33 +459,37 @@ Time taken: 0.697 seconds, Fetched 5 row(s)
 In this step we will see results that have applied updates to existing rows and created some new rows.
 
 ```
-SELECT * 
- FROM icecatalog.icecatalog.customer 
- VERSION AS OF 7079313749846172419
+SELECT
+    cust_id,
+    first_name,
+    last_name,
+    create_date
+  FROM icecatalog.icecatalog.customer
+
+ VERSION AS OF 3276759594719593733
  ORDER by cust_id;
 ```
 
 #### Output:
 
 ```
-first_name      last_name       street_address  city    state   zip_code        home_phone      mobile  email   ssn     job_title       create_date     cust_id
-Brenda  Thompson        321 Nicole Ports Suite 204      South Lisachester       AS      89409   486.884.6221x4431       (290)274-1564   wmoran@example.net      483-79-5404     Housing manager/officer 2022-12-25 01:10:43     10
-Jennifer        Anderson        1392 Cervantes Isle     Adrianaton      IN      15867   939-630-6773    904.337.2023x17453      michaeltodd@example.com 583-07-6994     Clinical embryologist   2022-12-03 04:50:07     11
-William Jefferson       543 Matthew Courts      South Nicholaston       WA      17687   +1-599-587-9051x2899    (915)689-1450   peterhouse@example.net  792-52-6700     Land    2022-11-28 08:17:10     12
-Jack    Romero  5929 Karen Ridges       Lake Richardburgh       OR      78947   (402)664-1399x71255     450.580.6817x043        michellemitchell@example.net    216-24-7271     Engineer, building services     2022-12-11 19:09:30     13
-Robert  Johnson 4313 Adams Islands      Tammybury       UT      07361   (477)888-9999   220-403-9274x9709       morrischristopher@example.com   012-26-8650     Rural practice surveyor 2022-12-08 05:28:56     14
-Benjamin        Rocha   294 William Skyway      Fowlerville     WA      75495   001-476-468-4403x364    4731036956      fwhite@example.com      571-78-6278     Probation officer       2022-12-10 07:39:35     15
-Jonathan        Lawrence        4610 Kelly Road Suite 333       Michaelfort     PR      03033   936.011.1602x5883       (577)016-2546x30390     raymisty@example.com    003-05-2317     Dancer  2022-11-27 23:44:14     16
-Thomas  Taylor  51884 Kelsey Ridges Apt. 973    Lake Morgan     RI      36056   541-784-5497x32009      +1-337-857-9219x83198   vanggary@example.net    133-61-4337     Town planner    2022-12-07 12:33:45     17
-Jeffrey Williamson      6094 Powell Passage     Stevenland      VT      88479   4172910794      494.361.3094x223        jwallace@example.com    512-84-0907     Clinical cytogeneticist 2022-12-13 16:58:43     18
-Joseph  Mccullough      7329 Santiago Point Apt. 070    Reedland        MH      85316   (449)740-1390   (663)381-3306x19170     michellecain@example.com        605-84-9744     Seismic interpreter     2022-12-05 05:33:56     19
-Evan    Kirby   95959 Brown Rue Apt. 657        Lake Vanessa    MH      92042   342-317-5803    185-084-4719x39341      tayloralexandra@example.org     264-14-4935     Interpreter     2022-12-20 14:23:43     20
-Teresa  Pittman 3249 Danielle Parks Apt. 472    East Ryan       ME      33108   +1-814-789-0109x88291   (749)434-0916   hamiltondanielle@example.org    302-61-5936     Medical physicist       2022-12-26 05:14:24     21
-Alicia  Byrd    1232 Jenkins Pine Apt. 472      Woodton NC      82330   001-930-450-7297x258    +1-968-526-2756x661     shelly47@example.net    656-69-9593     Therapist, art  2022-12-17 18:20:51     22
-Kathleen        Ellis   935 Kristina Club       East Maryton    AK      86759   001-089-194-5982x828    127.892.8518    jacksonkaren@example.com        426-13-9463     English as a foreign language teacher   2022-12-08 04:01:44     23
-Tony    Lee     830 Elizabeth Mill Suite 184    New Heather     UT      59612   001-593-666-0198        060.108.7218    vmayo@example.net       048-20-6647     Civil engineer, consulting      2022-12-24 17:10:32     24
-Time taken: 0.571 seconds, Fetched 15 row(s)
-
+cust_id first_name      last_name       create_date
+10      Caitlyn         Rogers          2022-12-16 03:19:35
+11      Brittany        Williams        2022-12-04 23:29:48
+12      Victor          Gordon          2022-12-22 18:03:13
+13      Shelby          Martinez        2022-11-27 16:10:42
+14      Corey           Bridges         2022-12-11 23:29:52
+15      Benjamin        Rocha           2022-12-10 07:39:35
+16      Jonathan        Lawrence        2022-11-27 23:44:14
+17      Thomas          Taylor          2022-12-07 12:33:45
+18      Jeffrey         Williamson      2022-12-13 16:58:43
+19      Joseph          Mccullough      2022-12-05 05:33:56
+20      Evan            Kirby           2022-12-20 14:23:43
+21      Teresa          Pittman         2022-12-26 05:14:24
+22      Alicia          Byrd            2022-12-17 18:20:51
+23      Kathleen        Ellis           2022-12-08 04:01:44
+24      Tony            Lee             2022-12-24 17:10:32
+Time taken: 0.432 seconds, Fetched 15 row(s)
 ```
 
 ---
