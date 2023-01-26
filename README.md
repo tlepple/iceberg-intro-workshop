@@ -65,6 +65,12 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
  * Refill your coffee, this will run for about 5 min.
 
 ---
+---
+
+### The environment is how setup and we can run through some excercises:
+
+---
+---
 
 ### Run an aws cli command against our local minio server
  * all the aws s3 command work in this server.
