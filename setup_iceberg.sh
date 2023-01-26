@@ -1,12 +1,12 @@
 #!/bin/bash
 
 ##########################################################################################
-#  make sure some utils are installed in the OS
+# Install some OS utilities 
 #########################################################################################
 sudo apt-get install wget curl -y
 
 ##########################################################################################
-#  #  going to install a specific version of postgresql (version 14)
+#  install a specific version of postgresql (version 14)
 ##########################################################################################
 apt policy postgresql
 
