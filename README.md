@@ -12,7 +12,7 @@
 
  * I built this on a new install of Ubuntu Server
  * Version: 20.04.5 LTS 
- * Instance Specs: (min 2 core w/ 4 GB ram & 20 GB of disk)
+ * Instance Specs: (min 2 core w/ 4 GB ram & 20 GB of disk) -- add more RAM if you have it to spare.
 
 ---
 
