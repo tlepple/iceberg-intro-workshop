@@ -516,3 +516,86 @@ quit();
 ```
 ---
 
+#### Expected Output:
+
+---
+
+```
+>>> # import SparkSession
+>>> from pyspark.sql import SparkSession
+>>> 
+>>> # create SparkSession
+>>> spark = SparkSession.builder \
+...      .appName("Python Spark SQL example") \
+...      .config("spark.jars.packages", "org.apache.iceberg:iceberg-spark-runtime-3.3_2.12:1.1.0,software.amazon.awssdk:bundle:2.19.19,software.amazon.awssdk:url-connection-client:2.19.19") \
+...      .config("spark.sql.extensions", "org.apache.iceberg.spark.extensions.IcebergSparkSessionExtensions") \
+...      .config("spark.sql.catalog.icecatalog", "org.apache.iceberg.spark.SparkCatalog") \
+...      .config("spark.sql.catalog.icecatalog.catalog-impl", "org.apache.iceberg.jdbc.JdbcCatalog") \
+...      .config("spark.sql.catalog.icecatalog.uri", "jdbc:postgresql://127.0.0.1:5432/icecatalog") \
+...      .config("spark.sql.catalog.icecatalog.jdbc.user", "icecatalog") \
+...      .config("spark.sql.catalog.icecatalog.jdbc.password", "supersecret1") \
+...      .config("spark.sql.catalog.icecatalog.warehouse", "s3://iceberg-data") \
+...      .config("spark.sql.catalog.icecatalog.io-impl", "org.apache.iceberg.aws.s3.S3FileIO") \
+...      .config("spark.sql.catalog.icecatalog.s3.endpoint", "http://127.0.0.1:9000") \
+...      .config("spark.sql.catalog.sparkcatalog", "icecatalog") \
+...      .config("spark.eventLog.enabled", "true") \
+...      .config("spark.eventLog.dir", "/opt/spark/spark-events") \
+...      .config("spark.history.fs.logDirectory", "/opt/spark/spark-events") \
+...      .config("spark.sql.catalogImplementation", "in-memory") \
+...      .getOrCreate()
+23/01/26 02:04:13 WARN SparkSession: Using an existing Spark session; only runtime SQL configurations will take effect.
+>>> 
+>>> # A JSON dataset is pointed to by path
+>>> path = "/opt/spark/input/transactions.json"
+>>> 
+>>> #  read json into the DataFrame
+>>> transactionsDF = spark.read.json(path)
+>>> 
+>>> # visualize the inferred schema
+>>> transactionsDF.printSchema()
+root
+ |-- amount: double (nullable = true)
+ |-- barcode: string (nullable = true)
+ |-- category: string (nullable = true)
+ |-- cust_id: long (nullable = true)
+ |-- item_desc: string (nullable = true)
+ |-- transact_id: string (nullable = true)
+ |-- transaction_date: string (nullable = true)
+
+>>> 
+>>> # print out the dataframe in this cli
+>>> transactionsDF.show()
++------+-------------+--------+-------+--------------------+--------------------+-------------------+
+|amount|      barcode|category|cust_id|           item_desc|         transact_id|   transaction_date|
++------+-------------+--------+-------+--------------------+--------------------+-------------------+
+| 50.63|4541397840276|  purple|     10| Than explain cover.|586fef8b-00da-421...|2023-01-08 00:11:25|
+| 95.37|2308832642138|   green|     10| Necessary body oil.|e8809684-7997-4cc...|2023-01-23 17:23:04|
+|  9.71|1644304420912|    teal|     10|Recent property a...|18bb3472-56c0-48e...|2023-01-18 18:12:44|
+| 92.69|6996277154185|   white|     10|Entire worry hosp...|a520859f-7cde-429...|2023-01-03 13:45:03|
+| 21.89|7318960584434|  purple|     11|Finally kind coun...|3922d6a1-d112-411...|2022-12-29 09:00:26|
+| 24.97|4676656262244|   olive|     11|Strong likely spe...|fe40fd4c-6111-49b...|2023-01-19 03:47:12|
+| 68.98|2299973443220|    aqua|     14|Store blue confer...|331def13-f644-409...|2023-01-13 10:07:46|
+|  66.5|1115162814798|  silver|     14|Court dog method ...|57cdb9b6-d370-4aa...|2022-12-29 06:04:30|
+| 26.96|5617858920203|    gray|     14|Black director af...|9124d0ef-9374-441...|2023-01-11 19:20:39|
+| 11.24|1829792571456|  yellow|     14|Lead today best p...|d418abe1-63dc-4ca...|2022-12-31 03:16:32|
+|  6.82|9406622469286|    aqua|     15|Power itself job ...|422a413a-590b-4f7...|2023-01-09 19:09:29|
+| 89.39|7753423715275|   black|     15|Material risk first.|bc4125fc-08cb-4ab...|2023-01-23 03:24:02|
+| 63.49|2242895060556|   black|     15|Foreign strong wa...|ff4e4369-bcef-438...|2022-12-29 22:12:09|
+|  49.7|3010754625845|   black|     15|  Own book move for.|d00a9e7a-0cea-428...|2023-01-12 21:42:32|
+| 10.45|7885711282777|   green|     15|Without beat then...|33afa171-a652-429...|2023-01-05 04:33:24|
+| 34.12|8802078025372|    aqua|     16|     Site win movie.|cfba6338-f816-4b7...|2023-01-07 12:22:34|
+| 96.14|9389514040254|   olive|     16|Agree enjoy four ...|5223b620-5eef-4fa...|2022-12-28 17:06:04|
+|  3.38|6079280166809|    blue|     16|Concern his debat...|33725df2-e14b-45a...|2023-01-17 20:53:25|
+|  2.67|5723406697760|  yellow|     16|Republican sure r...|6a707466-7b43-4af...|2023-01-02 15:40:17|
+| 68.85|0555188918000|   black|     16|Sense recently th...|5a31670b-9b68-43f...|2023-01-12 03:21:06|
++------+-------------+--------+-------+--------------------+--------------------+-------------------+
+only showing top 20 rows
+
+>>> transactionsDF.writeTo("icecatalog.icecatalog.transactions").append()
+SLF4J: Failed to load class "org.slf4j.impl.StaticLoggerBinder".
+SLF4J: Defaulting to no-operation (NOP) logger implementation
+SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further details.
+>>> spark.stop()                                                                
+>>> quit();
+
+```
