@@ -1,7 +1,7 @@
 #!/bin/bash
 
 ##########################################################################################
-# Install some OS utilities 
+#  install some OS utilities 
 #########################################################################################
 sudo apt-get install wget curl -y
 
@@ -29,12 +29,12 @@ sudo systemctl enable postgresql
 sudo cp /etc/postgresql/14/main/postgresql.conf /etc/postgresql/14/main/postgresql.conf.orig
 
 ##########################################################################################
-# setup the database to allow listeners from any host
+#  setup the database to allow listeners from any host
 ##########################################################################################
 sudo sed -e 's,#listen_addresses = \x27localhost\x27,listen_addresses = \x27*\x27,g' -i /etc/postgresql/14/main/postgresql.conf
 
 ##########################################################################################
-# Increase number of connections allow in the database
+#  increase number of connections allowed in the database
 ##########################################################################################
 sudo sed -e 's,max_connections = 100,max_connections = 300,g' -i /etc/postgresql/14/main/postgresql.conf
 
@@ -58,12 +58,12 @@ sudo chown postgres:postgres /etc/postgresql/14/main/pg_hba.conf
 sudo chmod 600 /etc/postgresql/14/main/pg_hba.conf
 
 ##########################################################################################
-# Restart Postgresql
+#  restart postgresql
 ##########################################################################################
 sudo systemctl restart postgresql
 
 ##########################################################################################
-#    Create a DDL file for icecatalog database
+#  create a DDL file for database 'icecatalog' 
 ##########################################################################################
 
 cat <<EOF > ~/create_ddl_icecatalog.sql
@@ -75,7 +75,7 @@ CREATE SCHEMA icecatalog;
 EOF
 
 ##########################################################################################
-# Run the sql DDL file to create the schema for all DB’s
+#  run the sql DDL file to create the objects in the database 
 ##########################################################################################
 sudo -u postgres psql < ~/create_ddl_icecatalog.sql
 
@@ -85,12 +85,12 @@ sudo -u postgres psql < ~/create_ddl_icecatalog.sql
 sudo apt install postgresql-client  -y
 
 ##########################################################################################
-#  Install Java 11 jdk
+#  install java-11-jdk
 ##########################################################################################
 sudo apt install openjdk-11-jdk -y
 
 ##########################################################################################
-#  Install Maven 
+#  Install maven 
 ##########################################################################################
 sudo apt install maven -y
 
@@ -127,7 +127,6 @@ wget https://repo1.maven.org/maven2/software/amazon/awssdk/bundle/2.19.19/bundle
 
 sudo cp bundle-2.19.19.jar /opt/spark/jars/
 
-
 wget https://repo1.maven.org/maven2/software/amazon/awssdk/url-connection-client/2.19.19/url-connection-client-2.19.19.jar
 cp url-connection-client-2.19.19.jar /opt/spark/jars/
 
@@ -138,7 +137,6 @@ wget https://repo.maven.apache.org/maven2/org/apache/iceberg/iceberg-spark-runti
 
 cp ~/iceberg-spark-runtime-3.3_2.12-1.1.0.jar /opt/spark/jars/
 
-
 ##########################################################################################
 #  download minio debian package
 ##########################################################################################
@@ -148,7 +146,6 @@ wget https://dl.min.io/server/minio/release/linux-amd64/archive/minio_2023011202
 #   install minio
 ##########################################################################################
 sudo dpkg -i minio.deb
-
 
 ##########################################################################################
 #  create directory for minio data to be stored
@@ -203,7 +200,7 @@ sudo chown root:root /etc/default/minio
 sudo systemctl start minio.service
 
 ##########################################################################################
-#  Install the MinIO Client on this server 
+#  install the 'MinIO Client' on this server 
 ##########################################################################################
 curl https://dl.min.io/client/mc/release/linux-amd64/mc \
   --create-dirs \
@@ -223,7 +220,7 @@ mc alias set local http://127.0.0.1:9000 minioroot supersecret1
 mc admin user add local icebergadmin supersecret1!
 
 ##########################################################################################
-# need to add the 'readwrite' minio policy to this new user: (these are just like aws policies)
+#  need to add the 'readwrite' minio policy to this new user: (these are just like aws policies)
 ##########################################################################################
 mc admin policy set local readwrite user=icebergadmin
 
@@ -233,7 +230,7 @@ mc admin policy set local readwrite user=icebergadmin
 mc alias set icebergadmin http://127.0.0.1:9000 icebergadmin supersecret1!
 
 ##########################################################################################
-# create new 'Access Keys' for this user and redirect output to a file for automation later
+#  create new 'Access Keys' for this user and redirect output to a file for automation later
 ##########################################################################################
 mc admin user svcacct add icebergadmin icebergadmin >> ~/minio-output.properties
 
@@ -250,7 +247,7 @@ sed -i "s/Secret Key: /secret_key=/g" ~/minio-output.properties
 
 
 ##########################################################################################
-#   let's  read the update file into memory to use these values to set aws configure
+#  let's  read the update file into memory to use these values to set aws configure
 ##########################################################################################
 . ./minio-output.properties
 
