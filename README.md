@@ -67,7 +67,7 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 ---
 ---
 
-### The environment is how setup and we can run through some excercises:
+### The environment is now setup and we can run through some excercises:
 
 ---
 ---
