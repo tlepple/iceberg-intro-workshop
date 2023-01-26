@@ -443,9 +443,18 @@ Tony    Lee     830 Elizabeth Mill Suite 184    New Heather     UT      59612   
 Time taken: 0.571 seconds, Fetched 15 row(s)
 
 ```
+
 ---
 
-### Let's load our `Transactions` table we create earlier using a pyspark dataFrame:
+### Exit out of `sparksql` cli.
+
+```
+exit;
+
+```
+---
+
+### Let's try out `pyspark` and load our `Transactions` table with a pyspark dataFrame
 
 ---
 
