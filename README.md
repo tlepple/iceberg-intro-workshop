@@ -422,7 +422,7 @@ Time taken: 0.697 seconds, Fetched 5 row(s)
 ### Query to get the results after the MERGE statement.
   *  replace thse snapshop id with your value:
 
-In this step we will see results that have applied updates to existing rows and create some new rows.
+In this step we will see results that have applied updates to existing rows and created some new rows.
 
 ```
 SELECT * 
