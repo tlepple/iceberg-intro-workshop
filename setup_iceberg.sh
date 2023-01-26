@@ -257,7 +257,7 @@ sed -i "s/Secret Key: /secret_key=/g" ~/minio-output.properties
 . ./minio-output.properties
 
 ##########################################################################################
-#  let's set up aws configure files from code
+#  let's set up aws configure files from code (this is using the minio credentials) - The default region doesn't get used in minio
 ##########################################################################################
 aws configure set aws_access_key_id $access_key
 aws configure set aws_secret_access_key $secret_key
