@@ -352,7 +352,7 @@ cat <<EOF > /opt/spark/input/transactions.json
 EOF
 
 #########################################################################################
-# add to items to path for future use
+# add items to path for future use
 #########################################################################################
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 export SPARK_HOME=/opt/spark
