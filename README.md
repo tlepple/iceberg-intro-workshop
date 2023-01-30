@@ -50,7 +50,7 @@ This setup script will build a single node platform that will setup a local S3a 
   ---
 ####  Object Storage Notes:
   ---
-  *  This type of object store could also be setup to run in your own data center if that is a requirement.   Otherwise you could build and deploy something very similar in AWS using their S3 service instead.   I chose this option to demonstrate you have a lot of options you might not have considered.  It will store all of our Apache Iceberg data and catalog database objects.  
+  *  This type of object store could also be setup to run in your own data center if that is a requirement.   Otherwise, you could build and deploy something very similar in AWS using their S3 service instead.   I chose this option to demonstrate you have a lot of options you might not have considered.  It will store all of our Apache Iceberg data and catalog database objects.  
   *  This particular service is running Minio and it has a rest API that supports direct integration with the AWS CLI tool.  The script also installed the AWS CLI tools and configures the properities of the AWS CLI to work directly with Minio.
 
   ---
