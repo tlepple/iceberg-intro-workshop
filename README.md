@@ -477,14 +477,13 @@ WHEN NOT MATCHED THEN INSERT *;
 ---
 
 ###  Explore Time Travel with Apache Iceberg:
+Time travel queries allow you to access historical data at any point in time.  Data that has been updated or deleted with queries over time can still be accessed.  You might need this for analytical purposes or compliance issues.
 
+In order to run a time travel query we need some metadata to pass into our query.  The metadata exists in our catalog and can be access with a query.  The following query will return some metadata from our database.
 
-###  Let's take a look at Time Travel Queries from this table:
-  *  In order to run a time travel query we need some metadata to pass into our query.
-
-This query will return some metadata from our database.
   *  your results will be slightly different.
-
+  *  
+##### Query from SparkSQL CLI:
 ```
 SELECT 
      committed_at, 
@@ -495,7 +494,7 @@ SELECT
 ```
 ---
 
-#### Output:
+#### Expected Output:
 
 ```
   committed_at    snapshot_id     parent_id
@@ -506,7 +505,11 @@ Time taken: 0.195 seconds, Fetched 2 row(s)
 
 ---
 
-###  Query of the table after our first INSERT statement:
+###  Example from data in our customer table:
+
+We need to grab the `snapshop_id` value from our above query and edit the following query with your `snapshot_id` value.
+
+Query of the table after our first INSERT statement:
   *  replace thse snapshop id with your value:
 
 In this step we will get results that show the data as it was originally loaded.
@@ -517,12 +520,12 @@ SELECT
     last_name,
     create_date
   FROM icecatalog.icecatalog.customer
-  VERSION AS OF 2216914164877191507
+  VERSION AS OF <your snapshot_id here>
   ORDER by cust_id;
 
 ```
 
-####  Output:
+#####  Expected Output:
 
 ```
 
@@ -537,11 +540,13 @@ Time taken: 0.349 seconds, Fetched 5 row(s)
 ```
 ---
 
-### Query to get the results after the MERGE statement.
-  *  replace thse snapshop id with your value:
+###  Example from data in our customer table after running our `MERGE` statement:
 
-In this step we will see results that have applied updates to existing rows and created some new rows.
 
+In this step we will see sample results from our customer table after we ran the `MERGE` step earlier.  It will show new rows and updated some existing rows. 
+  *  remember to replace `<your snapshot_id here>`  with the `snapshop_id` from your table metadata.  
+
+##### Query:
 ```
 SELECT
     cust_id,
@@ -550,11 +555,11 @@ SELECT
     create_date
   FROM icecatalog.icecatalog.customer
 
- VERSION AS OF 3276759594719593733
+ VERSION AS OF <your snapshot_id here>
  ORDER by cust_id;
 ```
 
-#### Output:
+##### Expected Output:
 
 ```
 cust_id first_name      last_name       create_date
@@ -585,7 +590,11 @@ exit;
 
 ```
 ---
-### Explore `pyspark` and load our `Transactions` table with a pyspark dataFrame
+### Explore Iceberg operations using Spark Dataframes.
+
+We will us `pyspark` in this example and load our `Transactions` table with a pyspark dataFrame.
+
+##### Notes:
   * pyspark isn't as feature rich as the sparksql client (in future versions it should catch up).  For example it doesn't support the `MERGE` example we tested earlier.
 
 ---
@@ -681,7 +690,7 @@ quit();
 ```
 ---
 
-#### Expected Output:
+##### Expected Output:
 
 ---
 
