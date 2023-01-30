@@ -463,6 +463,8 @@ SELECT cust_id, first_name, last_name FROM icecatalog.icecatalog.customer;
 ##### Sample Output:
 
 ```
+cust_id     first_name      last_name
+Time taken: 0.111 seconds
 
 ```
 
@@ -487,7 +489,25 @@ INSERT INTO icecatalog.icecatalog.customer
 
 ```
 
+---
+##### Query our customer table after we have loaded this json file:
+```
+SELECT cust_id, first_name, last_name FROM icecatalog.icecatalog.customer;
+```
 
+##### Sample Output:
+
+```
+cust_id first_name      last_name
+10      Brenda          Thompson
+11      Jennifer        Anderson
+13      Jack            Romero
+14      Robert          Johnson
+12      William         Jefferson
+Time taken: 0.262 seconds, Fetched 5 row(s)
+
+
+```
 
 ---
 
