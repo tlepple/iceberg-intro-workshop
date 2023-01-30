@@ -110,35 +110,13 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 ---
 ---
 
-# Highlights:
-This setup script will build a single node platform that will setup a local S3a compliant object store, install a local SQL database, install a single node Apache Iceberg processing engine and lay the ground work for support of our Apache Iceberg tables and catalog.   
+###  AWS CLI Integration:
 
-####  Object Storage Notes
-  *  This type of object store could also be setup to run in your own data center if that is a requirement.   Otherwise you could build and deploy something very similar in AWS using their S3 service instead.   I chose this option to demonstrate you have a lot of options you might not have considered.  It will store all of our Apache Iceberg data and catalog database objects.  
-  *  This particular service is running Minio and it has a rest API that supports direct interaction from the AWS CLI tools.  The script also installed the AWS CLI tools and configured the properities of the AWS CLI to work directly with Minio.
-
-#### Local Database Notes:
-  *  The local SQL database is PostgreSQL an it will host metadata with pointers to the Apache Iceberg data persisted in our object store and  the data for our Apache Iceberg catalog.  It maintains very small footprint.
-
-####  Apache Iceberg Processing Engine Notes:
-  *  This particular workshop is using Apache Spark but we could have chosen any one of the currently supported platforms.  In a future workshop I will demonstrate integrating a few of them.
-     *  Spark
-     *  Flink
-     *  Trino
-     *  Presto
-     *  Dermio
-     *  StarRocks
-     *  Amazon Athena
-     *  Amazon EMR
-     *  Impala
-     *  Doris
-     
+Let's test out the AWS CLI and run a command to list the buckets currently stored in our Minio object store.
 
 ---
----
 
-### Run an aws cli command against our local minio server
- * all the aws s3 command work in this server.
+##### Command:
 
 ```
 aws --endpoint-url http://127.0.0.1:9000 s3 ls
@@ -150,7 +128,7 @@ aws --endpoint-url http://127.0.0.1:9000 s3 ls
 ```
 ---
 
-### Let's Explore Minio
+### Let's Explore Minio GUI from a browser.
 
 Let's login into the minio GUI: navigate to `http:\\<host ip address>:9000` in a browser
 
