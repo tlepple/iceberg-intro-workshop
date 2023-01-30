@@ -373,7 +373,7 @@ In this lab we will create our first iceberg table with `Spark-SQL`
 ---
 
 #### Start the `Spark-SQL` cli tool
- * from the sparksql console run the below commands
+ * from the spark-sql console run the below commands:
 
 ---
 
