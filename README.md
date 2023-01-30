@@ -480,6 +480,7 @@ WHEN MATCHED THEN UPDATE SET
              c.create_date = j.create_date
 WHEN NOT MATCHED THEN INSERT *;
 ```
+---
 
 ### Highlights of interest:
   *
