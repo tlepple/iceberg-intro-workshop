@@ -159,12 +159,13 @@ There is also a minio rest api to accomplish many administrative tasks and use b
 ##### Command:
 
 ```
-aws --endpoint-url http://127.0.0.1:9000 s3 ls
+mc ls icebergadmin
 ```
 
 ##### Expected Output: The bucket name.
 ```
-2023-01-24 22:58:38 iceberg-data
+[2023-01-26 16:54:33 UTC]     0B iceberg-data/
+
 ```
 ---
 
