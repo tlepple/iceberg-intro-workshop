@@ -187,21 +187,26 @@ cd $SPARK_HOME
 ```
 
 ---
+##  Processing Engine Setup:
 
-### Start a Spark Worker Server 
+---
+In this section we are configuring our processing engine (Apache Spark) that will use some of its tools to build our Apache Iceberg catalog and let us interact with data we will load.
+
+---
+
+##### Start a Spark Worker Server 
 
 ```
 . ./sbin/start-worker.sh spark://$(hostname -f):7077
 ```
-
 ---
 
-###  Check that the Spark GUI is up:
+####  Check that the Spark GUI is up:
  * navigate to `http:\\<host ip address>:8080` in a browser
 
 ---
 
-### Sample view of Spark Master.
+#### Sample view of Spark Master.
 
 ---
 
@@ -209,7 +214,8 @@ cd $SPARK_HOME
 
 ---
 
-###  Initialize some variables that will be used when we start the Spark-SQL service
+####  Congigure the Spark-SQL service:
+In this step we will initialize some variables that will be used when we start the Spark-SQL service
 
 ```
 . ~/minio-output.properties
@@ -312,7 +318,8 @@ spark-sql>
 ```
 ---
 
-###  Let's do a cursory check
+####  Cursory Check:
+From our new sqparksql terminall session run the following command:
 
 ```
 SHOW CURRENT NAMESPACE;
@@ -326,19 +333,17 @@ Time taken: 2.692 seconds, Fetched 1 row(s)
 ```
 ---
 
-###  Apache Iceberg exercises begin here:
-  * In this lab we will create our first iceberg table with `Spark-SQL`
+###  Exercises:
+In this lab we will create our first iceberg table with `Spark-SQL`
 
-### Start the `SparkSQL` cli tool
+#### Start the `SparkSQL` cli tool
  * from the sparksql console run the below commands
 
 ---
 
 ### Create Tables:
   * These will be run in the spark-sql cli
-
 ```
-# Create Customer table:
 CREATE TABLE icecatalog.icecatalog.customer (
     first_name STRING,
     last_name STRING,
@@ -359,7 +364,6 @@ OPTIONS (
     'write.data.path'='s3://iceberg-data')
 PARTITIONED BY (state);
 
-# Create Transactions table:
 CREATE TABLE icecatalog.icecatalog.transactions (
     transact_id STRING,
     transaction_date STRING,
@@ -383,20 +387,22 @@ OPTIONS (
 ![](./images/bucket_first_table_metadata_view.png)
 ---
 
-###  Insert some records:
+####  Insert some records:
   *  In this step we will load up some json records from a file created during setup.
   *  We will create a temporary view against this json file and then load the file with an INSERT statement.
 ---
 
+##### Create temporary view statement:
 ```
-# Create temporary view statement:
 CREATE TEMPORARY VIEW customerView
   USING org.apache.spark.sql.json
   OPTIONS (
     path "/opt/spark/input/customers.json"
   );
+```
 
-# Load the existing icegberg table (created earlier) with:
+##### Load the existing icegberg table (created earlier) with:
+```
 INSERT INTO icecatalog.icecatalog.customer 
     SELECT 
              first_name, 
@@ -417,19 +423,20 @@ INSERT INTO icecatalog.icecatalog.customer
 ```
 ---
 
-### Let's Add and Update some rows with the `MERGE` Statement:
+### Let's Add and Update some rows with an example `MERGE` Statement:
 
 ---
-
+##### Create temporary view statement:
 ```
-# Create temporary view statement:
 CREATE TEMPORARY VIEW mergeCustomerView
   USING org.apache.spark.sql.json
   OPTIONS (
     path "/opt/spark/input/update_customers.json"
   );
+```
 
-# Merge records from a json file:  
+##### Merge records from a json file:  
+```
 MERGE INTO icecatalog.icecatalog.customer c
 USING (SELECT
              first_name,
@@ -463,6 +470,10 @@ WHEN MATCHED THEN UPDATE SET
 WHEN NOT MATCHED THEN INSERT *;
 ```
 
+### Highlights of interest:
+  *
+  *
+  
 ---
 
 ###  Let's take a look at Time Travel Queries from this table:
@@ -505,7 +516,6 @@ SELECT
   FROM icecatalog.icecatalog.customer
   VERSION AS OF 2216914164877191507
   ORDER by cust_id;
-
 
 ```
 
