@@ -49,7 +49,7 @@ This setup script will build a single node platform that will setup a local S3a 
 
 #### Local Database Notes:
   ---
-  *  The local SQL database is PostgreSQL an it will host metadata with pointers to the Apache Iceberg data persisted in our object store and the data for our Apache Iceberg catalog.  It maintains very small footprint.
+  *  The local SQL database is PostgreSQL an it will host metadata with pointers to the Apache Iceberg table data persisted in our object store and the metadata for our Apache Iceberg catalog.  It maintains very small footprint.
 
 ####  Apache Iceberg Processing Engine Notes:
   ---
