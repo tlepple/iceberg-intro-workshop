@@ -218,6 +218,7 @@ cd $SPARK_HOME
 ---
 
 ####  Congigure the Spark-SQL service:
+---
 In this step we will initialize some variables that will be used when we start the Spark-SQL service
 
 ```
@@ -240,7 +241,7 @@ export DEPENDENCIES+=",$AWS_MAVEN_GROUP:$pkg:$AWS_SDK_VERSION"
 done
 ```
 
-###  Start the Spark-SQL client service:
+#####  Start the Spark-SQL client service:
 
 ```
 cd $SPARK_HOME
@@ -264,7 +265,7 @@ spark-sql --packages $DEPENDENCIES \
 --conf spark.sql.catalogImplementation=in-memory
 ```
 ---
-####  Expected Output:
+#####  Expected Output:
   *  the warnings can be ingored
 ```
 23/01/25 19:48:19 WARN Utils: Your hostname, spark-ice2 resolves to a loopback address: 127.0.1.1; using 192.168.1.167 instead (on interface eth0)
@@ -321,14 +322,14 @@ spark-sql>
 ```
 ---
 
-####  Cursory Check:
+#####  Cursory Check:
 From our new sqparksql terminall session run the following command:
 
 ```
 SHOW CURRENT NAMESPACE;
 ```
 
-#### Expected Output:
+##### Expected Output:
 
 ```
 icecatalog
@@ -339,12 +340,14 @@ Time taken: 2.692 seconds, Fetched 1 row(s)
 ###  Exercises:
 In this lab we will create our first iceberg table with `Spark-SQL`
 
+---
+
 #### Start the `SparkSQL` cli tool
  * from the sparksql console run the below commands
 
 ---
 
-### Create Tables:
+##### Create Tables:
   * These will be run in the spark-sql cli
 ```
 CREATE TABLE icecatalog.icecatalog.customer (
@@ -383,7 +386,7 @@ OPTIONS (
 
 ---
 
-###  Go examine the bucket in Minio from the GUI
+###  Exxamine the bucket in Minio from the GUI
   * It wrote out all the metadata and files into our object storage from the Apache Iceberg Catalog we created.
 
 ---
