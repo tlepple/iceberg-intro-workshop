@@ -476,6 +476,9 @@ WHEN NOT MATCHED THEN INSERT *;
   
 ---
 
+###  Explore Time Travel with Apache Iceberg:
+
+
 ###  Let's take a look at Time Travel Queries from this table:
   *  In order to run a time travel query we need some metadata to pass into our query.
 
@@ -582,8 +585,7 @@ exit;
 
 ```
 ---
-
-### Let's try out `pyspark` and load our `Transactions` table with a pyspark dataFrame
+### Explore `pyspark` and load our `Transactions` table with a pyspark dataFrame
   * pyspark isn't as feature rich as the sparksql client (in future versions it should catch up).  For example it doesn't support the `MERGE` example we tested earlier.
 
 ---
