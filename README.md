@@ -34,7 +34,7 @@ Regardless of which object store store you choose to deploy on your overall expe
   ---
   ### Item 2:
   ---
-  *  Multi-petabyte tables can be read from a single node, without needing a distributed SQL engine to sift through table metadata.  That means the tools used in the examples I give below could be used to query the data stored in object stores without needing to dedicate expensive compute servers.
+  *  Multi-petabyte tables can be read from a single node, without needing a distributed SQL engine to sift through table metadata.  That means the tools used in the examples I give below could be used to query the data stored in object stores without needing to dedicate expensive compute servers.  You could spin up virtual instances or containers and execute queries against the data stored in the object store.
 
 In a series of upcoming workshops, I will build out and document some new technologies that can be integrated with legacy solutions deployed by most organizations today.  It will give you a roadmap into how you can gain insights (in near real-time) from data produced in your legacy systems with minimal impact on those servers.  We will use a Change Data Capture (CDC) approach to pull the data from log files produced by the database providers and deliver it to our Iceberg solution we are building today.
 
