@@ -513,7 +513,7 @@ Time taken: 0.262 seconds, Fetched 5 row(s)
 
 ### Now let's run a more advanced query:
 
-Let's Add and Update some rows in one step with an example `MERGE` Statement.   This will create a view on top of a json file and then run our query to update existing rows if they match on the field `cust_id` and append new rows to our table all in the same query.
+Let's Add and Update some rows in one step with an example `MERGE` Statement.   This will create a view on top of a json file and then run our query to update existing rows if they match on the field `cust_id` and if they don't match on this field append the new rows to our `customer` table all in the same query.
 
 ---
 ##### Create temporary view statement:
