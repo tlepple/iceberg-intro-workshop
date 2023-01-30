@@ -453,7 +453,7 @@ cust_id first_name      last_name
 Time taken: 0.173 seconds, Fetched 5 row(s)
 
 ```
-##### Load the existing icegberg table (created earlier) with:
+##### Load the existing icegberg table (created earlier) with an `INSERT as SELECT` type of query:
 ```
 INSERT INTO icecatalog.icecatalog.customer 
     SELECT 
