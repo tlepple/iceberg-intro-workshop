@@ -141,7 +141,7 @@ aws --endpoint-url http://127.0.0.1:9000 s3 ls
 ```
 ---
 
-### Let's Explore Minio GUI from a browser.
+### Explore Minio GUI from a browser.
 
 Let's login into the minio GUI: navigate to `http:\\<host ip address>:9000` in a browser
 
