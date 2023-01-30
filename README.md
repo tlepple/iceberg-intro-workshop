@@ -491,7 +491,7 @@ WHEN NOT MATCHED THEN INSERT *;
 ###  Explore Time Travel with Apache Iceberg:
 Time travel queries allow you to access historical data at any point in time.  Data that has been updated or deleted with queries over time can still be accessed.  You might need this for analytical purposes or compliance issues.
 
-In order to run a time travel query we need some metadata to pass into our query.  The metadata exists in our catalog and can be access with a query.  The following query will return some metadata from our database.
+In order to run a time travel query we need some metadata to pass into our query.  The metadata exists in our catalog and can be accessed with a query.  The following query will return some metadata from our database.
 
   *  your results will be slightly different.
     
