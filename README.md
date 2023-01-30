@@ -167,7 +167,7 @@ Let's login into the minio GUI: navigate to `http:\\<host ip address>:9000` in a
 
 ---
 
-Click on the tab `Access Keys` :  The key was created during the build too.
+Click on the tab `Access Keys` :  The key was created during the build too.  We use this key & secret key to configure AWS CLI.
 
 ---
 
