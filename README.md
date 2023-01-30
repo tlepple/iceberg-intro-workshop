@@ -40,6 +40,8 @@ Regardless of which object store store you choose to deploy on your overall expe
 ---
 
 # Highlights:
+
+---
 This setup script will build a single node platform that will setup a local S3a compliant object store, install a local SQL database, install a single node Apache Iceberg processing engine and lay the ground work for support of our Apache Iceberg tables and catalog.   
  
   ---
