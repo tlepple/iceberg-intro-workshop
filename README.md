@@ -453,6 +453,19 @@ cust_id first_name      last_name
 Time taken: 0.173 seconds, Fetched 5 row(s)
 
 ```
+
+---
+##### Query our customer table before we load data to it:
+```
+SELECT cust_id, first_name, last_name FROM icecatalog.icecatalog.customer;
+```
+
+##### Sample Output:
+
+```
+
+```
+
 ##### Load the existing icegberg table (created earlier) with an `INSERT as SELECT` type of query:
 ```
 INSERT INTO icecatalog.icecatalog.customer 
@@ -473,6 +486,9 @@ INSERT INTO icecatalog.icecatalog.customer
     FROM customerView;
 
 ```
+
+
+
 ---
 
 ### Let's Add and Update some rows with an example `MERGE` Statement:
