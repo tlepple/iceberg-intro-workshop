@@ -561,6 +561,29 @@ WHEN NOT MATCHED THEN INSERT *;
 ```
 ---
 
+---
+##### Query our customer table after running our merge query:
+```
+SELECT cust_id, first_name, last_name FROM icecatalog.icecatalog.customer;
+```
+
+##### Sample Output:
+
+```
+cust_id first_name      last_name
+10      Brenda          Thompson
+11      Jennifer        Anderson
+13      Jack            Romero
+14      Robert          Johnson
+12      William         Jefferson
+Time taken: 0.262 seconds, Fetched 5 row(s)
+
+
+```
+
+---
+
+
 ### Highlights of interest:
   *
   *
