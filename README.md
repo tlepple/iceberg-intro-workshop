@@ -27,6 +27,36 @@ A couple of items really jumped out at me when I read the documentation for the 
 In a series of upcoming workshops, I will build out and document some new technologies that can be integrated with legacy solutions deployed by most organizations today.  It will give you a roadmap into how you can gain insights (in near real-time) from data produced in your legacy systems with minimal impact on those servers.  We will use a Change Data Capture (CDC) approach to pull the data from log files produced by the database providers and deliver it to our Iceberg solution we are building today.
 
 ---
+---
+
+# Highlights:
+This setup script will build a single node platform that will setup a local S3a compliant object store, install a local SQL database, install a single node Apache Iceberg processing engine and lay the ground work for support of our Apache Iceberg tables and catalog.   
+
+####  Object Storage Notes
+  *  This type of object store could also be setup to run in your own data center if that is a requirement.   Otherwise you could build and deploy something very similar in AWS using their S3 service instead.   I chose this option to demonstrate you have a lot of options you might not have considered.  It will store all of our Apache Iceberg data and catalog database objects.  
+  *  This particular service is running Minio and it has a rest API that supports direct interaction from the AWS CLI tools.  The script also installed the AWS CLI tools and configured the properities of the AWS CLI to work directly with Minio.
+
+#### Local Database Notes:
+  *  The local SQL database is PostgreSQL an it will host metadata with pointers to the Apache Iceberg data persisted in our object store and  the data for our Apache Iceberg catalog.  It maintains very small footprint.
+
+####  Apache Iceberg Processing Engine Notes:
+  *  This particular workshop is using Apache Spark but we could have chosen any one of the currently supported platforms.  In a future workshop I will demonstrate integrating a few of them.
+     *  Spark
+     *  Flink
+     *  Trino
+     *  Presto
+     *  Dermio
+     *  StarRocks
+     *  Amazon Athena
+     *  Amazon EMR
+     *  Impala
+     *  Doris
+     
+
+---
+---
+
+---
 
 ###  Pre-Requisites:
 
@@ -81,7 +111,28 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 ---
 
 # Highlights:
-This setup script built a single node platform that has setup a local object store (S3A compliant), installed a local Postgresql Database, installed a single node Apache Spark service.   This type of object store could also be setup to run in your own data center if that is a requirement.   Otherwise you could build and deploy something very similar in AWS using S3 instead.   I chose this option to demonstrate you have a lot of options you might not have considered.  W
+This setup script will build a single node platform that will setup a local S3a compliant object store, install a local SQL database, install a single node Apache Iceberg processing engine and lay the ground work for support of our Apache Iceberg tables and catalog.   
+
+####  Object Storage Notes
+  *  This type of object store could also be setup to run in your own data center if that is a requirement.   Otherwise you could build and deploy something very similar in AWS using their S3 service instead.   I chose this option to demonstrate you have a lot of options you might not have considered.  It will store all of our Apache Iceberg data and catalog database objects.  
+  *  This particular service is running Minio and it has a rest API that supports direct interaction from the AWS CLI tools.  The script also installed the AWS CLI tools and configured the properities of the AWS CLI to work directly with Minio.
+
+#### Local Database Notes:
+  *  The local SQL database is PostgreSQL an it will host metadata with pointers to the Apache Iceberg data persisted in our object store and  the data for our Apache Iceberg catalog.  It maintains very small footprint.
+
+####  Apache Iceberg Processing Engine Notes:
+  *  This particular workshop is using Apache Spark but we could have chosen any one of the currently supported platforms.  In a future workshop I will demonstrate integrating a few of them.
+     *  Spark
+     *  Flink
+     *  Trino
+     *  Presto
+     *  Dermio
+     *  StarRocks
+     *  Amazon Athena
+     *  Amazon EMR
+     *  Impala
+     *  Doris
+     
 
 ---
 ---
