@@ -152,7 +152,7 @@ aws --endpoint-url http://127.0.0.1:9000 s3 ls
 
 ###  Minio CLI Integration:
 
-There is also a minio rest api to accomplish many administrative command and work with buckets without using AWS CLI.  Here is a link to the their documentation:  [Minio Client](https://min.io/docs/minio/linux/reference/minio-mc.html).  This client was also installed and configured in the setup script.
+There is also a minio rest api to accomplish many administrative tasks and use buckets without using AWS CLI.  Here is a link to the their documentation:  [Minio Client](https://min.io/docs/minio/linux/reference/minio-mc.html).  This client was also installed and configured in the setup script.
 
 ---
 
