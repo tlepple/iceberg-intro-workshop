@@ -58,7 +58,7 @@ This setup script will build a single node platform that will setup a local S3a 
   ---
 ####  Apache Iceberg Processing Engine Notes:
   ---
-  *  This particular workshop is using Apache Spark but we could have chosen any one of the currently supported platforms:  
+  *  This particular workshop is using Apache Spark but we could have chosen any of the currently supported platforms.  We could also choose to use a combination of these tool and they share the same Apache Iceberg Catalog.  Here is the current list of supported tools:  
      *  Spark
      *  Flink
      *  Trino
