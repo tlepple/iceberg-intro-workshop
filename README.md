@@ -80,6 +80,12 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 ---
 ---
 
+# Highlights:
+This setup script built a single node platform that has setup a local object store (S3A compliant), installed a local Postgresql Database, installed a single node Apache Spark service.   This type of object store could also be setup to run in your own data center if that is a requirement.   Otherwise you could build and deploy something very similar in AWS using S3 instead.   I chose this option to demonstrate you have a lot of options you might not have considered.  W
+
+---
+---
+
 ### Run an aws cli command against our local minio server
  * all the aws s3 command work in this server.
 
