@@ -790,6 +790,25 @@ Let's open our sparksql cli again (follow same steps as above) and run the follo
 
 ##### Query:
 ```
+SELECT 
+   c.cust_id
+   , c.first_name
+   , c.last_name
+   , t.transact_id
+   , t.item_desc
+   , t.amount
+FROM 
+   icecatalog.icecatalog.customer c
+   , icecatalog.icecatalog.transactions t
+INNER JOIN icecatalog.icecatalog.customer cj ON  c.cust_id = t.cust_id
+LIMIT 20;
+```
+
+---
+
+##### Expected Output:
+
+```
 
 ```
 
