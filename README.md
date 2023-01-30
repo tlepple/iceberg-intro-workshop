@@ -67,14 +67,13 @@ This setup script will build a single node platform that will setup a local S3a 
      *  Amazon EMR
      *  Impala
      *  Doris
-     
 
 ---
----
-
 ---
 
 ###  Pre-Requisites:
+
+---
 
  * I built this on a new install of Ubuntu Server
  * Version: 20.04.5 LTS 
