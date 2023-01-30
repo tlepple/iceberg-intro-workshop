@@ -353,7 +353,7 @@ spark-sql>
 ---
 
 #####  Cursory Check:
-From our new sqparksql terminall session run the following command:
+From our new spark-sql terminal session run the following command:
 
 ```
 SHOW CURRENT NAMESPACE;
