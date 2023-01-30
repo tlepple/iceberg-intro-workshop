@@ -140,7 +140,7 @@ Let's test out the AWS CLI that was installed and configured during the build an
 aws --endpoint-url http://127.0.0.1:9000 s3 ls
 ```
 
-#### Expected Output: The bucket name.
+##### Expected Output: The bucket name.
 ```
 2023-01-24 22:58:38 iceberg-data
 ```
