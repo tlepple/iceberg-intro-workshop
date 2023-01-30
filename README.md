@@ -130,7 +130,7 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 
 ###  AWS CLI Integration:
 
-Let's test out the AWS CLI and run a command to list the buckets currently stored in our Minio object store.
+Let's test out the AWS CLI that was installed and configured during the build and run an `AWS S3` command to list the buckets currently stored in our Minio object store.
 
 ---
 
