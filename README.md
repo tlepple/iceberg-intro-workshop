@@ -186,7 +186,7 @@ Click on the tab: `Buckets`
 
 
 ---
-##  Processing Engine Setup:
+##  Apache Iceberg Processing Engine Setup:
 
 ---
 In this section we are configuring our processing engine (Apache Spark) that will use some of its tools to build our Apache Iceberg catalog and let us interact with data we will load.
