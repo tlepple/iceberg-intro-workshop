@@ -156,7 +156,7 @@ There is also a minio rest api to accomplish many administrative tasks and use b
 
 ---
 
-##### Command:
+##### List Command:
 
 ```
 mc ls icebergadmin
