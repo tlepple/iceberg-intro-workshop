@@ -43,7 +43,7 @@ In a series of upcoming workshops, I will build out and document some new techno
 This setup script will build a single node platform that will setup a local S3a compliant object store, install a local SQL database, install a single node Apache Iceberg processing engine and lay the ground work for support of our Apache Iceberg tables and catalog.   
 
 ####  Object Storage Notes:
-  ---
+  --
   *  This type of object store could also be setup to run in your own data center if that is a requirement.   Otherwise you could build and deploy something very similar in AWS using their S3 service instead.   I chose this option to demonstrate you have a lot of options you might not have considered.  It will store all of our Apache Iceberg data and catalog database objects.  
   *  This particular service is running Minio and it has a rest API that supports direct integration with the AWS CLI tool.  The script also installed the AWS CLI tools and configures the properities of the AWS CLI to work directly with Minio.
 
