@@ -779,3 +779,18 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 >>> quit();
 
 ```
+
+---
+
+### Explore our tables within SparksQL
+
+Let's open our sparksql cli again (follow same steps as above) and run the follow query to join our 2 tables and view some sample data.
+
+---
+
+##### Query:
+```
+
+```
+
+
