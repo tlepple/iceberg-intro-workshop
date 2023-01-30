@@ -594,16 +594,12 @@ Time taken: 0.381 seconds, Fetched 15 row(s)
 ---
 
 
-### Highlights of interest:
-  *
-  *
-  
----
+### Explore Time Travel with Apache Iceberg:
+So far in our workshop we have loaded some tables and run some `CRUD` operations with our platform.  In this exercise we are going to see a really cool feature called `Time Travel`.
 
-###  Explore Time Travel with Apache Iceberg:
 Time travel queries allow you to access historical data at any point in time.  Data that has been updated or deleted with queries over time can still be accessed.  You might need this for analytical purposes or compliance issues.
 
-In order to run a time travel query we need some metadata to pass into our query.  The metadata exists in our catalog and can be accessed with a query.  The following query will return some metadata from our database.
+In order to run a time travel query we need some metadata to pass into our query.  The metadata exists in our catalog and it can be accessed with a query.  The following query will return some metadata from our database.
 
   *  your results will be slightly different.
     
