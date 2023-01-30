@@ -248,11 +248,10 @@ mc mb icebergadmin/iceberg-data icebergadmin
 sed -i "s/Access Key: /access_key=/g" ~/minio-output.properties
 sed -i "s/Secret Key: /secret_key=/g" ~/minio-output.properties
 
-
 ##########################################################################################
 #  let's  read the update file into memory to use these values to set aws configure
 ##########################################################################################
-. ./minio-output.properties
+. ~/minio-output.properties
 
 ##########################################################################################
 #  let's set up aws configure files from code (this is using the minio credentials) - The default region doesn't get used in minio
