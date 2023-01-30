@@ -564,20 +564,29 @@ WHEN NOT MATCHED THEN INSERT *;
 ---
 ##### Query our customer table after running our merge query:
 ```
-SELECT cust_id, first_name, last_name FROM icecatalog.icecatalog.customer;
+SELECT cust_id, first_name, last_name FROM icecatalog.icecatalog.customer ORDER BY cust_id;
 ```
 
 ##### Sample Output:
 
 ```
 cust_id first_name      last_name
-10      Brenda          Thompson
-11      Jennifer        Anderson
-13      Jack            Romero
-14      Robert          Johnson
-12      William         Jefferson
-Time taken: 0.262 seconds, Fetched 5 row(s)
-
+10      Caitlyn         Rogers
+11      Brittany        Williams
+12      Victor          Gordon
+13      Shelby          Martinez
+14      Corey           Bridges
+15      Benjamin        Rocha
+16      Jonathan        Lawrence
+17      Thomas          Taylor
+18      Jeffrey         Williamson
+19      Joseph          Mccullough
+20      Evan            Kirby
+21      Teresa          Pittman
+22      Alicia          Byrd
+23      Kathleen        Ellis
+24      Tony            Lee
+Time taken: 0.381 seconds, Fetched 15 row(s)
 
 ```
 
