@@ -204,12 +204,12 @@ cd $SPARK_HOME
 ```
 ---
 
-####  Check that the Spark GUI is up:
+#####  Check that the Spark GUI is up:
  * navigate to `http:\\<host ip address>:8080` in a browser
 
 ---
 
-#### Sample view of Spark Master.
+##### Sample view of Spark Master.
 
 ---
 
