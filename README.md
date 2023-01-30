@@ -924,6 +924,27 @@ LIMIT 20;
 ##### Expected Output:
 
 ```
+cust_id first_name      last_name     transact_id                             item_desc               amount
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        586fef8b-00da-4216-832a-a0eb5211b54a    Than explain cover.     50.63
+10      Caitlyn         Rogers        e8809684-7997-4ccf-96df-02fd57ca9d6f    Necessary body oil.     95.37
+10      Caitlyn         Rogers        e8809684-7997-4ccf-96df-02fd57ca9d6f    Necessary body oil.     95.37
+10      Caitlyn         Rogers        e8809684-7997-4ccf-96df-02fd57ca9d6f    Necessary body oil.     95.37
+10      Caitlyn         Rogers        e8809684-7997-4ccf-96df-02fd57ca9d6f    Necessary body oil.     95.37
+10      Caitlyn         Rogers        e8809684-7997-4ccf-96df-02fd57ca9d6f    Necessary body oil.     95.37
 
 ```
 
