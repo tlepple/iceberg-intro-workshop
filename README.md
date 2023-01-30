@@ -488,7 +488,7 @@ Time travel queries allow you to access historical data at any point in time.  D
 In order to run a time travel query we need some metadata to pass into our query.  The metadata exists in our catalog and can be access with a query.  The following query will return some metadata from our database.
 
   *  your results will be slightly different.
-  *  
+    
 ##### Query from SparkSQL CLI:
 ```
 SELECT 
