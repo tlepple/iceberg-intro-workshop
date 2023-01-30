@@ -19,7 +19,9 @@ My goal in this exercise was to go a little deeper than your typical `How To` gu
 ---
 ## But Why Apache Iceberg:
 
-A couple of items really jumped out at me when I read the documentation for the first time and I immediately saw the significant benefit it could provide.  Namely it could reduce the overall expense of enterprises to store and process the data they produce.  We all know that saving money in an enterprise is a good thing.  Here are the two items that really hit home for me:
+A couple of items really jumped out at me when I read the documentation for the first time and I immediately saw the significant benefit it could provide.  Namely it could reduce the overall expense of enterprises to store and process the data they produce.  We all know that saving money in an enterprise is a good thing.
+
+It can also perform standard `CRUD` operations on our tables seemlessly. Here are the two items that really hit home for me:
 
   ---
   ### Item 1:
@@ -224,7 +226,7 @@ cd $SPARK_HOME
 
 ####  Congigure the Spark-SQL service:
 ---
-In this step we will initialize some variables that will be used when we start the Spark-SQL service
+In this step we will initialize some variables that will be used when we start the Spark-SQL service.  
 
 ```
 . ~/minio-output.properties
@@ -247,6 +249,8 @@ done
 ```
 
 #####  Start the Spark-SQL client service:
+---
+Starting this service will connect to our PostgreSQL database and store database objects that point to the Apache Iceberg Catalog our our behalf.   The metadata for our catalog & tables (along with table records) will be stored in files persisted to our object stores.
 
 ```
 cd $SPARK_HOME
