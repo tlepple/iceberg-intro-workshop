@@ -31,7 +31,7 @@ It can also perform standard `CRUD` operations on our tables seemlessly. Here ar
       *   An on-premise solution that you build and support yourself like [Minio](https://min.io/).  
       *   Or a vendor hardware appliance like the [Dell ECS Enterprise Object Storage](https://www.dell.com/en-us/dt/storage/ecs/index.htm)
         
-Regardless of which object store store you choose to deploy on your overall expense to support this platform will see a significant savings over what you probably spend today.
+Regardless of which object store store you choose your overall expense to support this platform will see a significant savings over what you probably spend today.
   
   ---
   ### Item 2:
