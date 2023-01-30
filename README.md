@@ -958,7 +958,7 @@ cust_id first_name      last_name     transact_id                             it
 #### Final Thoughts:
 ---
  
-In a series of upcoming workshops, I will build out and document some new technologies that can be integrated with legacy solutions deployed by most organizations today.  It will give you a roadmap into how you can gain insights (in near real-time) from data produced in your legacy systems with minimal impact on those servers.  We will use a Change Data Capture (CDC) approach to pull the data from log files produced by the database providers and deliver it to our Iceberg solution we are building today.
+In a series of upcoming workshops, I will build out and document some new technologies that can be integrated with legacy solutions deployed by most organizations today.  It will give you a roadmap into how you can gain insights (in near real-time) from data produced in your legacy systems with minimal impact on those servers.  We will use a Change Data Capture (CDC) approach to pull the data from log files produced by the database providers and deliver it to our Apache Iceberg solution we built today.
 
 ---
 ---
