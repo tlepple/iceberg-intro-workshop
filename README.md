@@ -627,10 +627,12 @@ Time taken: 0.195 seconds, Fetched 2 row(s)
 
 ###  Example from data in our customer table:
 
+When we loaded our `customer` table initially it had only 5 rows of data.  We then ran a `MERGE` query to update some existing rows and insert new rows. With this query we can see our table results as it existed in that initial phase before the `MERGE`.
+
 We need to grab the `snapshop_id` value from our above query and edit the following query with your `snapshot_id` value.
 
 Query of the table after our first INSERT statement:
-  *  replace thse snapshop id with your value:
+  *  replace this `snapshop_id` with your value:
 
 In this step we will get results that show the data as it was originally loaded.
 ```
@@ -662,8 +664,7 @@ Time taken: 0.349 seconds, Fetched 5 row(s)
 
 ###  Example from data in our customer table after running our `MERGE` statement:
 
-
-In this step we will see sample results from our customer table after we ran the `MERGE` step earlier.  It will show new rows and updated some existing rows. 
+In this step we will see sample results from our customer table after we ran the `MERGE` step earlier.  It will show the updated existing rows and our new rows. 
   *  remember to replace `<your snapshot_id here>`  with the `snapshop_id` from your table metadata.  
 
 ##### Query:
