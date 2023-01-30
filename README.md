@@ -416,7 +416,7 @@ OPTIONS (
 
 ---
 
-###  Exxamine the bucket in Minio from the GUI
+###  Examine the bucket in Minio from the GUI
   * It wrote out all the metadata and files into our object storage from the Apache Iceberg Catalog we created.
 
 ---
