@@ -36,7 +36,7 @@ Regardless of which object store store you choose to deploy on your overall expe
   ---
   ### Item 2:
   ---
-  *  Multi-petabyte tables can be read from a single node, without needing a distributed SQL engine to sift through table metadata.  That means the tools used in the examples I give below could be used to query the data stored in object stores without needing to dedicate expensive compute servers.  You could spin up virtual instances or containers and execute queries against the data stored in the object store.
+  *  Multi-petabyte tables can be read from a single node without needing a distributed SQL engine to sift through table metadata.  That means the tools used in the examples I give below could be used to query the data stored in object stores without needing to dedicate expensive compute servers.  You could spin up virtual instances or containers and execute queries against the data stored in the object store.
 
 ---
 ---
