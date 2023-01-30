@@ -589,7 +589,7 @@ cust_id first_name      last_name
 Time taken: 0.381 seconds, Fetched 15 row(s)
 
 ```
-*  Note that the values for customers with `cust_id` 10-14 have new updated information.
+*  Note that the values for customers with `cust_id` between 10-14 have new updated information.
   
 ---
 
