@@ -21,6 +21,7 @@ My goal in this exercise was to go a little deeper than your typical `How To` gu
 
 A couple of items really jumped out at me when I read the documentation for the first time and I immediately saw the significant benefit it could provide.  Namely it could reduce the overall expense of enterprises to store and process the data they produce.  We all know that saving money in an enterprise is a good thing.  Here are the two items that really hit home for me:
 
+  ---
   ### Item 1:
   ---
   *  Iceberg is designed for huge tables and is used in production where a single table can contain tens of petabytes of data.  This data can be stored in modern day object stores similar to these:
@@ -29,7 +30,8 @@ A couple of items really jumped out at me when I read the documentation for the 
       *   Or a vendor hardware appliance like the [Dell ECS Enterprise Object Storage](https://www.dell.com/en-us/dt/storage/ecs/index.htm)
         
 Regardless of which object store store you choose to deploy on your overall expense to support this platform will be significant.
-
+  
+  ---
   ### Item 2:
   ---
   *  Multi-petabyte tables can be read from a single node, without needing a distributed SQL engine to sift through table metadata.  That means the tools used in the examples I give below could be used to query the data stored in object stores without needing to dedicate expensive compute servers.
