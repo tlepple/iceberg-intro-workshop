@@ -178,13 +178,7 @@ Click on the tab: `Buckets`
 
 ---
 
-### Start a standalone Spark Master Server 
 
-```
-cd $SPARK_HOME
-
-. ./sbin/start-master.sh
-```
 
 ---
 ##  Processing Engine Setup:
@@ -192,6 +186,15 @@ cd $SPARK_HOME
 ---
 In this section we are configuring our processing engine (Apache Spark) that will use some of its tools to build our Apache Iceberg catalog and let us interact with data we will load.
 
+---
+
+##### Start a standalone Spark Master Server 
+
+```
+cd $SPARK_HOME
+
+. ./sbin/start-master.sh
+```
 ---
 
 ##### Start a Spark Worker Server 
