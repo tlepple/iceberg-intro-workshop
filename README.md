@@ -503,7 +503,7 @@ SELECT
 #### Expected Output:
 
 ```
-  committed_at    snapshot_id     parent_id
+committed_at            snapshot_id             parent_id
 2023-01-26 16:58:31.873 2216914164877191507     NULL
 2023-01-26 17:00:18.585 3276759594719593733     2216914164877191507
 Time taken: 0.195 seconds, Fetched 2 row(s)
