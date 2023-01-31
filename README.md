@@ -787,7 +787,7 @@ SparkSession available as 'spark'.
 
 ```
 
-###  In this section we will load our `Transactions` data from a json file from Pyspark  
+###  In this section we will load our `Transactions` data from a json file using `Pyspark`  
 
  * code blocks are commented:
 
