@@ -17,7 +17,18 @@ Tags:  Apache Iceberg | Minio | Apache SparkSQL | Apache PySpark | Ubuntu
 My goal in this exercise was to go a little deeper than your typical `How To` guide that uses docker to spin up an enviroment. If that is what you are interested in the [Apache Iceberg website](https://iceberg.apache.org/spark-quickstart/) has a great quickstart for that. It has been my experience that to truely understand how some technologies work you need to know how they are wired together.  I took the time to install all the components manually and then I built the setup script in this repo so others could try it out too.  Please take the time to review that script `setup_iceberg.sh`.  Hopefully it becomes a reference for you one day.
 
 ---
-## But Why Apache Iceberg:
+---
+###  What is Apache Iceberg:
+
+Apache Iceberg is an open-source data management system for large scale data lakes. It provides a table abstraction for big data workloads, allowing for schema evolution, data discovery and simplified data access. Iceberg uses Apache Avro, Parquet or ORC as its data format and supports a variety of storage systems like HDFS, S3, ADLS, etc.
+
+Iceberg uses a versioning approach to manage schema changes, enabling multiple version of schema to coexist in a table, providing the ability to perform schema evolution without the need for copying data. Additionally, Iceberg provides data discovery capabilities, allowing users to identify the data they need for their specific use case and extract only that data, reducing the amount of I/O required to perform a query.
+
+Iceberg provides an easy to use API for querying data, supporting SQL and other query languages through Apache Spark, Hive, Presto and other engines. Iceberg’s table-centric design helps to manage large datasets with high scalability, reliability and performance.
+
+---
+---
+### But Why Apache Iceberg:
 
 A couple of items really jumped out at me when I read the documentation for the first time and I immediately saw the significant benefit it could provide.  Namely it could reduce the overall expense of enterprises to store and process the data they produce.  We all know that saving money in an enterprise is a good thing.
 
