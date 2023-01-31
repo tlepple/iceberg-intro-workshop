@@ -48,7 +48,7 @@ Regardless of which object store you choose, your overall expense to support thi
 
 ---
 
-This image overview from Starburst.io is really good.
+This image from Starburst.io is really good.
 
 ---
 ![](./images/Iceberg.gif)
