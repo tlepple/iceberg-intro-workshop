@@ -48,6 +48,11 @@ Regardless of which object store you choose, your overall expense to support thi
 
 ---
 ---
+![](./images/Iceberg.png)
+
+* I really like this image from Starburst.io
+---
+---
 
 # Highlights:
 
