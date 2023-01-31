@@ -12,19 +12,19 @@ Tags:  Apache Iceberg | Minio | Apache SparkSQL | Apache PySpark | Ubuntu
 
 ## Objective:
 
- * To evaluate Apache Iceberg with data stored in an S3a compliant object store on a traditional linux server.
+ * To evaluate Apache Iceberg with data stored in an S3a-compliant object store on a traditional Linux server.
 
-My goal in this exercise was to go a little deeper than your typical `How To` guide that uses docker to spin up an enviroment. If that is what you are interested in the [Apache Iceberg website](https://iceberg.apache.org/spark-quickstart/) has a great quickstart for that. It has been my experience that to truely understand how some technologies work you need to know how they are wired together.  I took the time to install all the components manually and then I built the setup script in this repo so others could try it out too.  Please take the time to review that script `setup_iceberg.sh`.  Hopefully it becomes a reference for you one day.
+My goal in this exercise was to go a little deeper than your typical `How To` guide that uses docker to spin up an environment. If that is what you are interested in the [Apache Iceberg website](https://iceberg.apache.org/spark-quickstart/) has a great quickstart for that. It has been my experience that to truly understand how some technologies work you need to know how they are wired together.  I took the time to install all the components manually and then I built the setup script in this repo so others could try it out too.  Please take the time to review that script `setup_iceberg.sh`.  Hopefully it becomes a reference for you one day.
 
 ---
 ---
 ###  What is Apache Iceberg:
 
-Apache Iceberg is an open-source data management system for large scale data lakes. It provides a table abstraction for big data workloads, allowing for schema evolution, data discovery and simplified data access. Iceberg uses Apache Avro, Parquet or ORC as its data format and supports a variety of storage systems like HDFS, S3, ADLS, etc.
+Apache Iceberg is an open-source data management system for large-scale data lakes. It provides a table abstraction for big data workloads, allowing for schema evolution, data discovery and simplified data access. Iceberg uses Apache Avro, Parquet or ORC as its data format and supports various storage systems like HDFS, S3, ADLS, etc.
 
-Iceberg uses a versioning approach to manage schema changes, enabling multiple version of schema to coexist in a table, providing the ability to perform schema evolution without the need for copying data. Additionally, Iceberg provides data discovery capabilities, allowing users to identify the data they need for their specific use case and extract only that data, reducing the amount of I/O required to perform a query.
+Iceberg uses a versioning approach to manage schema changes, enabling multiple versions of a schema to coexist in a table, providing the ability to perform schema evolution without the need for copying data. Additionally, Iceberg provides data discovery capabilities, allowing users to identify the data they need for their specific use case and extract only that data, reducing the amount of I/O required to perform a query.
 
-Iceberg provides an easy to use API for querying data, supporting SQL and other query languages through Apache Spark, Hive, Presto and other engines. Iceberg’s table-centric design helps to manage large datasets with high scalability, reliability and performance.
+Iceberg provides an easy-to-use API for querying data, supporting SQL and other query languages through Apache Spark, Hive, Presto and other engines. Iceberg’s table-centric design helps to manage large datasets with high scalability, reliability and performance.
 
 ---
 ---
@@ -32,17 +32,17 @@ Iceberg provides an easy to use API for querying data, supporting SQL and other 
 
 A couple of items really jumped out at me when I read the documentation for the first time and I immediately saw the significant benefit it could provide.  Namely it could reduce the overall expense of enterprises to store and process the data they produce.  We all know that saving money in an enterprise is a good thing.
 
-It can also perform standard `CRUD` operations on our tables seemlessly. Here are the two items that really hit home for me:
+It can also perform standard `CRUD` operations on our tables seamlessly. Here are the two items that really hit home for me:
 
   ---
   ### Item 1:
   ---
-  *  Iceberg is designed for huge tables and is used in production where a single table can contain tens of petabytes of data.  This data can be stored in modern day object stores similar to these:
+  *  Iceberg is designed for huge tables and is used in production where a single table can contain tens of petabytes of data.  This data can be stored in modern-day object stores similar to these:
       *   A Cloud provider like [Amazon S3](https://aws.amazon.com/s3/?nc2=h_ql_prod_st_s3) 
       *   An on-premise solution that you build and support yourself like [Minio](https://min.io/).  
       *   Or a vendor hardware appliance like the [Dell ECS Enterprise Object Storage](https://www.dell.com/en-us/dt/storage/ecs/index.htm)
         
-Regardless of which object store store you choose your overall expense to support this platform will see a significant savings over what you probably spend today.
+Regardless of which object store you choose, your overall expense to support this platform will see a significant savings over what you probably spend today.
   
   ---
   ### Item 2:
@@ -56,18 +56,18 @@ Regardless of which object store store you choose your overall expense to suppor
 
 ---
 
-This setup script will build a single node platform that will setup a local S3a compliant object store, install a local SQL database, install a single node Apache Iceberg processing engine and lay the ground work for support of our Apache Iceberg tables and catalog.   
+This setup script will build a single node platform that will set up a local S3a compliant object store, install a local SQL database, install a single node Apache Iceberg processing engine and lay the groundwork for the support of our Apache Iceberg tables and catalog.   
  
   ---
 ####  Object Storage Notes:
   ---
-  *  This type of object store could also be setup to run in your own data center if that is a requirement.   Otherwise, you could build and deploy something very similar in AWS using their S3 service instead.   I chose this option to demonstrate you have a lot of options you might not have considered.  It will store all of our Apache Iceberg data and catalog database objects.  
-  *  This particular service is running Minio and it has a rest API that supports direct integration with the AWS CLI tool.  The script also installed the AWS CLI tools and configured the properities of the AWS CLI to work directly with Minio.
+  *  This type of object store could also be set up to run in your own data center if that is a requirement.   Otherwise, you could build and deploy something very similar in AWS using their S3 service instead.   I chose this option to demonstrate you have a lot of options you might not have considered.  It will store all of our Apache Iceberg data and catalog database objects.  
+  *  This particular service is running Minio and it has a rest API that supports direct integration with the AWS CLI tool.  The script also installed the AWS CLI tools and configured the properties of the AWS CLI to work directly with Minio.
 
   ---
 #### Local Database Notes:
   ---
-  *  The local SQL database is PostgreSQL an it will host metadata with pointers to the Apache Iceberg table data persisted in our object store and the metadata for our Apache Iceberg catalog.  It maintains a very small footprint.
+  *  The local SQL database is PostgreSQL and it will host metadata with pointers to the Apache Iceberg table data persisted in our object store and the metadata for our Apache Iceberg catalog.  It maintains a very small footprint.
   
   ---
 ####  Apache Iceberg Processing Engine Notes:
