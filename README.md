@@ -274,7 +274,7 @@ cd $SPARK_HOME
 
 ####  Configure the Spark-SQL service:
 ---
-In this step, we will initialize some variables that will be used when we start the Spark-SQL service.  
+In this step, we will initialize some variables that will be used when we start the Spark-SQL service.  Copy this entire block and run in a terminal window.
 
 ```
 . ~/minio-output.properties
