@@ -655,7 +655,7 @@ Time taken: 0.195 seconds, Fetched 2 row(s)
 
 ---
 
-###  Example from data in our customer table:
+###  `Time Travel` example from data in our customer table:
 
 When we loaded our `customer` table initially it had only 5 rows of data.  We then ran a `MERGE` query to update some existing rows and insert new rows. With this query we can see our table results as it existed in that initial phase before the `MERGE`.
 
