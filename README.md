@@ -616,8 +616,9 @@ Time taken: 0.381 seconds, Fetched 15 row(s)
   
 ---
 
-
 ### Explore Time Travel with Apache Iceberg:
+
+---
 So far in our workshop we have loaded some tables and run some `CRUD` operations with our platform.  In this exercise we are going to see a really cool feature called `Time Travel`.
 
 Time travel queries refer to the ability to query data as it existed at a specific point in time in the past. This feature is useful in a variety of scenarios, such as auditing, disaster recovery, and debugging.
