@@ -620,7 +620,11 @@ Time taken: 0.381 seconds, Fetched 15 row(s)
 ### Explore Time Travel with Apache Iceberg:
 So far in our workshop we have loaded some tables and run some `CRUD` operations with our platform.  In this exercise we are going to see a really cool feature called `Time Travel`.
 
-Time travel queries allow you to access historical data at any point in time.  Data that has been updated or deleted with queries over time can still be accessed.  You might need this for analytical purposes or compliance issues.
+Time travel queries refer to the ability to query data as it existed at a specific point in time in the past. This feature is useful in a variety of scenarios, such as auditing, disaster recovery, and debugging.
+
+In a database or data warehousing system with time travel capability, historical data is stored along with a timestamp, allowing users to query the data as it existed at a specific time. This is achieved by either using a separate historical store or by maintaining multiple versions of the data in the same store.
+
+Time travel queries are typically implemented using tools like snapshots, temporal tables, or versioned data stores. These tools allow users to roll back to a previous version of the data and access it as if it were the current version. Time travel queries can also be combined with other data management features, such as data compression, data partitioning, and indexing, to improve performance and make historical data more easily accessible.
 
 In order to run a time travel query we need some metadata to pass into our query.  The metadata exists in our catalog and it can be accessed with a query.  The following query will return some metadata from our database.
 
