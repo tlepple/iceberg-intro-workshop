@@ -178,6 +178,18 @@ mc ls icebergadmin
 [2023-01-26 16:54:33 UTC]     0B iceberg-data/
 
 ```
+
+---
+---
+###  Minio Overview:
+
+Minio is an open-source, high-performance, and scalable object storage system. It is designed to be API compatible with Amazon S3, allowing applications written for Amazon S3 to work seamlessly with Minio. Minio can be deployed on-premises, in the cloud, or in a hybrid environment, providing a unified, centralized repository for storing and managing unstructured data, such as images, videos, and backups.
+
+Minio provides features such as versioning, access control, encryption, and event notifications, making it suitable for use cases such as data archiving, backup and disaster recovery, and media and entertainment. Minio also supports distributed mode, allowing multiple Minio nodes to be combined into a single object storage cluster for increased scalability and reliability.
+
+Minio can be used with a variety of tools and frameworks, including popular cloud-native technologies like Kubernetes, Docker, and Ansible, making it easy to deploy and manage.
+
+---
 ---
 
 ### Explore Minio GUI from a browser.
