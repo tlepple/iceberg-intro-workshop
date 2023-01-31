@@ -621,7 +621,7 @@ Time taken: 0.381 seconds, Fetched 15 row(s)
 ### Explore Time Travel with Apache Iceberg:
 
 ---
-So far in our workshop we have loaded some tables and run some `CRUD` operations with our platform.  In this exercise we are going to see a really cool feature called `Time Travel`.
+So far in our workshop we have loaded some tables and run some `CRUD` operations with our platform.  In this exercise, we are going to see a really cool feature called `Time Travel`.
 
 Time travel queries refer to the ability to query data as it existed at a specific point in time in the past. This feature is useful in a variety of scenarios, such as auditing, disaster recovery, and debugging.
 
@@ -657,14 +657,14 @@ Time taken: 0.195 seconds, Fetched 2 row(s)
 
 ###  `Time Travel` example from data in our customer table:
 
-When we loaded our `customer` table initially it had only 5 rows of data.  We then ran a `MERGE` query to update some existing rows and insert new rows. With this query we can see our table results as it existed in that initial phase before the `MERGE`.
+When we loaded our `customer` table initially it had only 5 rows of data.  We then ran a `MERGE` query to update some existing rows and insert new rows. With this query, we can see our table results as they existed in that initial phase before the `MERGE`.
 
 We need to grab the `snapshop_id` value from our above query and edit the following query with your `snapshot_id` value.
 
-Query of the table after our first INSERT statement:
+The query of the table after our first INSERT statement:
   *  replace this `snapshop_id` with your value:
 
-In this step we will get results that show the data as it was originally loaded.
+In this step, we will get results that show the data as it was originally loaded.
 ```
 SELECT
     cust_id,
