@@ -268,9 +268,9 @@ cd $SPARK_HOME
 
 ---
 
-####  Congigure the Spark-SQL service:
+####  Configure the Spark-SQL service:
 ---
-In this step we will initialize some variables that will be used when we start the Spark-SQL service.  
+In this step, we will initialize some variables that will be used when we start the Spark-SQL service.  
 
 ```
 . ~/minio-output.properties
@@ -294,7 +294,7 @@ done
 
 #####  Start the Spark-SQL client service:
 ---
-Starting this service will connect to our PostgreSQL database and store database objects that point to the Apache Iceberg Catalog our our behalf.   The metadata for our catalog & tables (along with table records) will be stored in files persisted to our object stores.
+Starting this service will connect to our PostgreSQL database and store database objects that point to the Apache Iceberg Catalog on our behalf.   The metadata for our catalog & tables (along with table records) will be stored in files persisted in our object stores.
 
 ```
 cd $SPARK_HOME
@@ -392,7 +392,7 @@ Time taken: 2.692 seconds, Fetched 1 row(s)
 ---
 
 ###  Exercises:
-In this lab we will create our first iceberg table with `Spark-SQL`
+In this lab, we will create our first iceberg table with `Spark-SQL`
 
 ---
 ---
