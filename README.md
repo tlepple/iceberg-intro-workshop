@@ -260,7 +260,7 @@ cd $SPARK_HOME
 ---
 
 #####  Check that the Spark GUI is up:
- * navigate to `http:\\<host ip address>:8080` in a browser
+ * navigate to `http//<host ip address>:8080` in a browser
 
 ---
 
