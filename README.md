@@ -817,7 +817,7 @@ spark = SparkSession.builder \
      .config("spark.sql.catalogImplementation", "in-memory") \
      .getOrCreate()
 
-# A JSON dataset is pointed to by path
+# A JSON dataset is pointed to by 'path' variable
 path = "/opt/spark/input/transactions.json"
 
 #  read json into the DataFrame
