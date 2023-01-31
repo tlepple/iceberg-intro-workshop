@@ -11,10 +11,7 @@ Tags:  Apache Iceberg | Minio | Apache SparkSQL | Apache PySpark | Ubuntu
 ---
 
 ## Objective:
-
- * To evaluate Apache Iceberg with data stored in an S3a-compliant object store on a traditional Linux server.
-
-My goal in this exercise was to go a little deeper than your typical `How To` guide that uses docker to spin up an environment. If that is what you are interested in the [Apache Iceberg website](https://iceberg.apache.org/spark-quickstart/) has a great quickstart for that. It has been my experience that to truly understand how some technologies work you need to know how they are wired together.  I took the time to install all the components manually and then I built the setup script in this repo so others could try it out too.  Please take the time to review that script `setup_iceberg.sh`.  Hopefully it becomes a reference for you one day.
+My goal in this workshop was to evaluate Apache Iceberg with data stored in an S3a-compliant object store on a traditional Linux server.  I like to understand how systems integrate, so I took the time to install all the components manually and then built the setup script in this repo so others could try it out too.  Please take the time to review that script `setup_iceberg.sh`.  Hopefully it becomes a reference for you one day. 
 
 ---
 ---
