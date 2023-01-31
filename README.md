@@ -449,8 +449,8 @@ OPTIONS (
 ---
 
 ####  Insert some records with our SparkSQL CLI:
-  *  In this step we will load up some json records from a file created during setup.
-  *  We will create a temporary view against this json file and then load the file with an INSERT statement.
+  *  In this step we will load up some JSON records from a file created during setup.
+  *  We will create a temporary view against this JSON file and then load the file with an INSERT statement.
 ---
 
 ##### Create temporary view statement:
@@ -515,7 +515,7 @@ INSERT INTO icecatalog.icecatalog.customer
 ```
 
 ---
-##### Query our customer table after we have loaded this json file:
+##### Query our customer table after we have loaded this JSON file:
 ```
 SELECT cust_id, first_name, last_name FROM icecatalog.icecatalog.customer;
 ```
