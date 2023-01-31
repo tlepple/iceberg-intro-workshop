@@ -694,7 +694,7 @@ Time taken: 0.349 seconds, Fetched 5 row(s)
 
 ###  Example from data in our customer table after running our `MERGE` statement:
 
-In this step we will see sample results from our customer table after we ran the `MERGE` step earlier.  It will show the updated existing rows and our new rows. 
+In this step, we will see sample results from our customer table after we ran the `MERGE` step earlier.  It will show the updated existing rows and our new rows. 
   *  remember to replace `<your snapshot_id here>`  with the `snapshop_id` from your table metadata.  
 
 ##### Query:
@@ -743,10 +743,10 @@ exit;
 ---
 ### Explore Iceberg operations using Spark Dataframes.
 
-We will us `pyspark` in this example and load our `Transactions` table with a pyspark dataFrame.
+We will use `pyspark` in this example and load our `Transactions` table with a pyspark dataFrame.
 
 ##### Notes:
-  * pyspark isn't as feature rich as the sparksql client (in future versions it should catch up).  For example it doesn't support the `MERGE` example we tested earlier.
+  * pyspark isn't as feature-rich as the sparksql client (in future versions it should catch up).  For example, it doesn't support the `MERGE` example we tested earlier.
 
 ---
 
@@ -929,7 +929,7 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 ### Explore our `Transactions` tables within SparksQL
 
-Let's open our sparksql cli again (follow same steps as above) and run the follow query to join our 2 tables and view some sample data.
+Let's open our sparksql cli again (follow the same steps as above) and run the following query to join our 2 tables and view some sample data.
 
 ---
 
