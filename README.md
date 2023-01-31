@@ -116,7 +116,7 @@ git clone https://github.com/tlepple/iceberg-intro-workshop.git
 
 ---
 
-####  This script will setup and confgure the following tools on this one host:
+####  This script will setup and configure the following tools on this one host:
  - minio (local S3a Service) (RELEASE.2023-01-12T02-06-16Z )
  - minio cli  (version RELEASE.2023-01-11T03-14-16Z )
  - openjdk 11 (version: 11 )
@@ -163,7 +163,7 @@ aws --endpoint-url http://127.0.0.1:9000 s3 ls
 
 ###  Minio CLI Integration:
 
-There is also a minio rest api to accomplish many administrative tasks and use buckets without using AWS CLI. The minio client was also installed and configured during setup.  Here is a link to the their documentation:  [Minio Client](https://min.io/docs/minio/linux/reference/minio-mc.html).
+There is also a minio rest API to accomplish many administrative tasks and use buckets without using AWS CLI. The minio client was also installed and configured during setup.  Here is a link to the documentation:  [Minio Client](https://min.io/docs/minio/linux/reference/minio-mc.html).
 
 ---
 
@@ -183,7 +183,7 @@ mc ls icebergadmin
 ---
 ###  Minio Overview:
 
-Minio is an open-source, high-performance, and scalable object storage system. It is designed to be API compatible with Amazon S3, allowing applications written for Amazon S3 to work seamlessly with Minio. Minio can be deployed on-premises, in the cloud, or in a hybrid environment, providing a unified, centralized repository for storing and managing unstructured data, such as images, videos, and backups.
+Minio is an open-source, high-performance, and scalable object storage system. It is designed to be API-compatible with Amazon S3, allowing applications written for Amazon S3 to work seamlessly with Minio. Minio can be deployed on-premises, in the cloud, or in a hybrid environment, providing a unified, centralized repository for storing and managing unstructured data, such as images, videos, and backups.
 
 Minio provides features such as versioning, access control, encryption, and event notifications, making it suitable for use cases such as data archiving, backup and disaster recovery, and media and entertainment. Minio also supports distributed mode, allowing multiple Minio nodes to be combined into a single object storage cluster for increased scalability and reliability.
 
@@ -235,7 +235,7 @@ Click on the tab: `Buckets`
 ##  Apache Iceberg Processing Engine Setup:
 
 ---
-In this section we are configuring our processing engine (Apache Spark) that will use some of its tools to build our Apache Iceberg catalog and let us interact with the data we will load.
+In this section, we are configuring our processing engine (Apache Spark) that will use some of its tools to build our Apache Iceberg catalog and let us interact with the data we will load.
 
 ---
 
