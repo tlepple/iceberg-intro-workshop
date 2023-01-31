@@ -389,10 +389,12 @@ icecatalog
 Time taken: 2.692 seconds, Fetched 1 row(s)
 ```
 ---
+---
 
 ###  Exercises:
 In this lab we will create our first iceberg table with `Spark-SQL`
 
+---
 ---
 
 #### Start the `Spark-SQL` cli tool
