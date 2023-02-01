@@ -755,7 +755,7 @@ We will use `pyspark` in this example and load our `Transactions` table with a p
 ---
 
 ###  Start `pyspark` cli
-
+  *  run this in a terminal window
 ```
 cd $SPARK_HOME
 pyspark
@@ -794,7 +794,7 @@ SparkSession available as 'spark'.
 ###  In this section we will load our `Transactions` data from a json file using `Pyspark`  
 
  * code blocks are commented:
-
+ * copy and past this block into our pyspark session in a terminal window:
 ---
 
 ```
@@ -933,8 +933,9 @@ SLF4J: See http://www.slf4j.org/codes.html#StaticLoggerBinder for further detail
 
 ### Explore our `Transactions` tables within SparksQL
 
-Let's open our sparksql cli again (follow the same steps as above) and run the following query to join our 2 tables and view some sample data.
+Let's open our spark-sql cli again (follow the same steps as above) and run the following query to join our 2 tables and view some sample data.
 
+*  Run these command a new spark-sql session in your terminal.
 ---
 
 ##### Query:
