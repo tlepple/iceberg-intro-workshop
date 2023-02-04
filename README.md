@@ -1006,3 +1006,12 @@ In a series of upcoming workshops, I will build out and document some new techno
 ---
 ---
 
+  ![](./images/drunk-cheers.gif)
+
+[Tim Lepple](www.linkedin.com/in/tim-lepple-9141452)
+
+---
+---
+---
+---
+
