@@ -85,7 +85,7 @@ This setup script will build a single node platform that will set up a local S3a
      *  StarRocks
      *  Amazon Athena
      *  Amazon EMR
-     *  Impala
+     *  Impala (Cloudera)
      *  Doris
 
 ---
