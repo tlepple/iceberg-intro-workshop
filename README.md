@@ -81,7 +81,7 @@ This setup script will build a single node platform that will set up a local S3a
      *  Flink
      *  Trino
      *  Presto
-     *  Dermio
+     *  Dremio
      *  StarRocks
      *  Amazon Athena
      *  Amazon EMR
